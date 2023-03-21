@@ -1,0 +1,67 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+:root{
+    --headerColor: rgb(255, 255, 255);
+    --sideBarColor: rgb(75, 253, 149);
+    --bgColor: rgb(245, 249, 255);
+    --barSize: 150px;
+    --siteMainFont: 'Times New Roman'
+}
+
+.bg{
+    background-color: var(--bgColor);
+}
+
+.header {
+    background-color:var(--headerColor);
+    border: 1px solid;
+    height: var(--barSize);
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+}
+
+.title{
+    text-align: center;
+    font-size:300%;
+    font-family: 'TImes New Roman';
+    font-family:var(--siteMainFont);
+}
+
+.sideBar{
+    width: 150px;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid;
+    background-color: var(--sideBarColor);
+    border-top: none;
+    text-align: center;
+    position: relative;
+    margin-top: 0px;
+}
+
+.sideBarContent{
+
+}
