@@ -1,0 +1,79 @@
+   :root
+   h1 {
+        text-align: center;
+        font-size: 4em;
+        color: rgb(37, 139, 54);
+        margin-bottom: .8em;
+        text-decoration: underline;
+      }
+      
+      table {
+        margin: .3em;
+        width: 290px;
+      }
+      
+      th {
+        padding: .2em;
+      }
+      
+      td {
+        padding-left: .5em;
+        padding-right: .5em;
+        border: 1px solid #900;
+        background-color: #ffc;
+      }
+      
+      #trHeader {
+        text-decoration: underline;
+        color: #900;
+      }
+      
+      .centerCell {
+        text-align: center;
+      }
+      .container { 
+        height: 200px;
+       
+        border: 8px solid green;
+      }
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #008000;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #FFFFFF
+      
+       
+        ;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidenav a:hover {
+        color: #000000;
+      }
+      
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
