@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Alexandria</title>   
+
+  <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg">
+  <header class="banner">
+    <div>
+      <symbol class="navButton" onclick="openNav()">&#9776;</symbol>
+      <div class="logo">
+      <a id="logo" href="javascript:void()" onmouseover="makeBig('220%')" onmouseleave="makeSmall('200%')">Alexandria</a>  
+      </div>
+    </div>
+    </header>
+  
+  <script src="{% static 'js/index.js' %}"></script>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Projetos</a>
+    <a href="#">Sobre o Projeto SOLAR</a>
+    <a href="#">Sobre Nós</a>
+    <a href="#">Contato</a>
+  </div>
+
+  <div id="content" class="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>
