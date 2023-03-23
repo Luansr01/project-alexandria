@@ -18,19 +18,19 @@
     <div>
       <symbol class="navButton" onclick="openNav()">&#9776;</symbol>
       <div class="logo">
-      <a id="logo" href="javascript:void()" onmouseover="makeBig('220%')" onmouseleave="makeSmall('200%')">Alexandria</a>  
+      <a id="logo" href="{% url 'home' %}" onmouseover="makeBig('220%')" onmouseleave="makeSmall('200%')">Alexandria</a>  
       </div>
     </div>
-    </header>
+  </header>
   
   <script src="{% static 'js/index.js' %}"></script>
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Projetos</a>
-    <a href="#">Sobre o Projeto SOLAR</a>
-    <a href="#">Sobre Nós</a>
-    <a href="#">Contato</a>
+    <a href="{%url 'projects'%}">Projetos</a>
+    <a href="{%url 'about'%}">Sobre o Projeto SOLAR</a>
+    <a href="{%url 'about_us'%}">Sobre Nós</a>
+    <a href="{%url 'contact'%}">Contato</a>
   </div>
 
   <div id="content" class="content">
@@ -39,5 +39,7 @@
     {% block content %}
     {% endblock %}
   </div>
+
+  <footer class="footer"></footer>
 </body>
 </html>

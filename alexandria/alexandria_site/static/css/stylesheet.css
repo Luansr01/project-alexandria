@@ -20,7 +20,9 @@ time, mark, audio, video {
 }
 
 body{
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 :root{
@@ -28,7 +30,7 @@ body{
 }
 
 .bg{
-  background-color: rgb(237, 238, 247);
+  background-color: rgb(238, 239, 247);
 }
 
 .banner{
@@ -104,28 +106,34 @@ body{
 }
 
 .content{
-  position: absolute;
+  flex: 1;
   top: 120px;
-  height: 100%;
-  width: 100%;
+  height: calc(100vh - 120px);
+  max-width: 100%;
 }
 
-.about #about-one{
-  position: absolute;
-  right: 5%;
-  width: 40%;
-  height: 100vh;
-  padding-left: 0;
-  border: 1px dotted black;
-  background-color: #00000020;
+.about{
+  padding: 2%;
 }
-.about #about-two{
 
-  padding: 5px;
-  width: 40%;
-  margin-left: 10%;
-  margin-bottom: 10px;
-  border: 1px dotted black;
+.about #img{
+  position: fixed;
+  padding-top: 40px;
+  right: 2%;
+  width: 45%;
+  float: right;
+}
+
+.about #img img{
+  box-shadow:5px 10px 20px #7a7a7a;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.about #txt{
+  font-size: 13px;
+  margin-right: 50%;
+  padding: 10px;
 }
 
 #shade{
@@ -137,3 +145,13 @@ body{
   background-color: #00000000;
   transition: 0.3s;
 }
+
+.footer{
+  background-color: rgb(98, 255, 145);
+  border-top: 1px solid rgb(172, 172, 172);
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  z-index: 998;
+}
+
