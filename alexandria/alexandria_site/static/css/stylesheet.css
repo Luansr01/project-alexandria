@@ -19,6 +19,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+body{
+  height: 100%;
+}
+
 :root{
   --bannerSize: 65px;
 }
@@ -100,31 +104,36 @@ time, mark, audio, video {
 }
 
 .content{
-  padding: 150px;
-  padding-top: 50px;
+  position: absolute;
+  top: 120px;
+  height: 100%;
+  width: 100%;
 }
 
 .about #about-one{
   position: absolute;
   right: 5%;
   width: 40%;
-  height:720%;
+  height: 100vh;
   padding-left: 0;
   border: 1px dotted black;
-  background-image: linear-gradient(green, blue);
+  background-color: #00000020;
 }
 .about #about-two{
-  position: absolute;
-  left: 150px;
+
+  padding: 5px;
   width: 40%;
-  padding-right: 0;
+  margin-left: 10%;
+  margin-bottom: 10px;
   border: 1px dotted black;
 }
 
-
-
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+#shade{
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: #00000000;
+  transition: 0.3s;
 }
