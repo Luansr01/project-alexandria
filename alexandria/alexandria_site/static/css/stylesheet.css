@@ -154,12 +154,14 @@ body{
   height: 50px;
   bottom: 0;
   z-index: 998;
+  margin-top: 50px;
 }
 
 /* <- HOMEPAGE -> */
 
 #homepage{
   padding: 2%;
+
 }
 
 #txt-one{
@@ -180,13 +182,13 @@ body{
 }
 
 #txt-two{
-  margin-top: 20px;
+  margin-top: 20%;
   margin-left: 50%;
   padding: 25px;
 }
 
 #img-two{
-  margin-top: 50px;
+  margin-top: 20%;
   width: 50%;
   float: left;
 }
