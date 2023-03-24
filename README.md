@@ -44,4 +44,22 @@ Abra o seu browser de escolha e acesse qualquer um dos links abaixo:
 * 127.0.0.1:8000/
 * localhost:8000/
 
-* As edições feitas ao código no modo desenvolvedor são aplicadas imediatamente, caso alguma edição não seja aplicada, tente dar CTRL+F5 para recarregar o cache. *
+*As edições feitas ao código no modo desenvolvedor são aplicadas imediatamente, caso alguma edição não seja aplicada, tente dar CTRL+F5 para recarregar o cache.*
+
+## Alterações
+
+As alterações ao código devem ser feitas através de commits pela ferramenta Git ou pelo site do Github.
+**Sempre comente seus commits!**
+
+As alterações também devem ser feitas na ferramenta do PythonAnywhere, e isso será feito ao menos semanalmente.
+
+## Hosting
+
+O projeto está atualmente hosteado no PythonAnywhere para a facilitação da visualização de terceiros.
+O URL do projeto é:
+* senshimun.pythonanywhere.com
+
+A senha e usuário de acesso são:
+
+* Username: alexandria
+* Password: dojotech
