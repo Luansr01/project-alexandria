@@ -35,4 +35,4 @@ Faça o download do * main * atual e abra o diretório no Shell de seu OS de esc
 Navegue até a pasta de localização do arquivo * manage.py *
 
 Para iniciar o servidor de desenvolvimento no seu localhost, execute:
-<img src="command1.png" alt="python manage.py runserver">
+<br><img src="command1.png" alt="python manage.py runserver">
