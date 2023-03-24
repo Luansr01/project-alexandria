@@ -1,5 +1,12 @@
 # project-alexandria
 
+![project-size](https://img.shields.io/github/repo-size/Luansr01/project-alexandria?style=flat-square)
+![framework](https://img.shields.io/badge/Framework-Django-brightgreen?style=flat-square)
+![framework](https://img.shields.io/badge/Py-thon-yellow?style=flat-square&labelColor=blue)
+![css](https://img.shields.io/badge/-CSS-blue?style=flat-square)
+![HTML5](https://img.shields.io/badge/-HTML5-orange?style=flat-square)
+![JavaScript](https://img.shields.io/badge/-JS-yellow?style=flat-square)
+
 Plataforma web para o mapeamento e registro de projetos realizados pela rede Fecomercio, e comunicação com seu público.
 
 * Este projeto foi desenvolvido para o evento DOJO TECH da rede Senac Tech em parceria com o Programa SOMAR.
