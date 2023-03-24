@@ -70,7 +70,7 @@ A senha e usuário de acesso são:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://github.com/account" width="100px;" alt="Foto do Luan"/><br>
+        <img src="https://avatars.githubusercontent.com/u/113078036?v=4" width="100px;" alt="Foto do Luan"/><br>
         <sub>
           <b>Luan dos Santos Rodrigues</b>
         </sub>
