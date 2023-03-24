@@ -55,7 +55,7 @@ As alterações também devem ser feitas na ferramenta do PythonAnywhere, e isso
 
 ## Hosting
 
-O projeto está atualmente hosteado no PythonAnywhere para a facilitação da visualização de terceiros.
+O projeto está atualmente hosteado no PythonAnywhere para a facilitação da visualização de terceiros. <br>
 O URL do projeto é:
 * senshimun.pythonanywhere.com
 
@@ -63,3 +63,50 @@ A senha e usuário de acesso são:
 
 * Username: alexandria
 * Password: dojotech
+
+## Colaboradores, Orientador e Apoiadores
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/account" width="100px;" alt="Foto do Luan"/><br>
+        <sub>
+          <b>Luan dos Santos Rodrigues</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/128070916?v=4" width="100px;" alt="Foto do Jean"/><br>
+        <sub>
+          <b>Jean Carlos dos Santos Silveira</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/128085739?v=4" width="100px;" alt="Foto da Laís"/><br>
+        <sub>
+          <b>Laís Pereira Barbizan</b>
+        </sub>
+      </a>
+    </td>
+        <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/128161346?v=4" width="100px;" alt="Foto da Mayra"/><br>
+        <sub>
+          <b>Mayra Oliveira Torres</b>
+        </sub>
+      </a>
+    </td>
+        <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/36458464?v=4" width="100px;" alt="Foto do Erick"/><br>
+        <sub>
+          <b>Erick Afonso da Costa Chagas</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
