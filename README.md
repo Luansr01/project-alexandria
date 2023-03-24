@@ -57,7 +57,7 @@ As alterações também devem ser feitas na ferramenta do PythonAnywhere, e isso
 
 O projeto está atualmente hosteado no PythonAnywhere para a facilitação da visualização de terceiros. <br>
 O URL do projeto é:
-* senshimun.pythonanywhere.com
+* <a href="http://senshimun.pythonanywhere.com/">senshimun.pythonanywhere.com</a>
 
 A senha e usuário de acesso são:
 
