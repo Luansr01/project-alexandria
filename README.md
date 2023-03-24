@@ -1,6 +1,6 @@
 # project-alexandria
 
-![Site Status](https://img.shields.io/website/https/senshimun.pythonanywhere.com/)
+![Site Status](https://img.shields.io/website/https/senshimun.pythonanywhere.com/.svg)
 
 Plataforma web para o mapeamento e registro de projetos realizados pela rede Fecomercio, comunicação com seu público.
 
