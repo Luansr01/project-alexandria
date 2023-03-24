@@ -30,7 +30,7 @@ body{
 }
 
 .bg{
-  background-color: rgb(238, 239, 247);
+  background-color: rgb(252, 253, 255);
 }
 
 .banner{
@@ -40,8 +40,8 @@ body{
   height: var(--bannerSize);
   width: 100%;
   top: 0;
-  left: 0;
-  border-bottom: 1px solid rgb(172, 172, 172);
+  left: 0;  
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.185);
 }
 
 .logo{
@@ -144,14 +144,49 @@ body{
   z-index: 999;
   background-color: #00000000;
   transition: 0.3s;
+  pointer-events: none;
 }
 
 .footer{
   background-color: rgb(98, 255, 145);
-  border-top: 1px solid rgb(172, 172, 172);
+  box-shadow: 0px -2px 30px rgba(0, 0, 0, 0.185);
   width: 100%;
   height: 50px;
   bottom: 0;
   z-index: 998;
 }
 
+/* <- HOMEPAGE -> */
+
+#homepage{
+  padding: 2%;
+}
+
+#txt-one{
+  margin-top: -20px;
+  margin-right: 50%;
+  padding: 25px;
+
+}
+
+#img-one{
+
+  padding: 0;
+  width: 50%;
+  margin-left: 0;
+  margin-top: 50px;
+  float: right;
+
+}
+
+#txt-two{
+  margin-top: 20px;
+  margin-left: 50%;
+  padding: 25px;
+}
+
+#img-two{
+  margin-top: 50px;
+  width: 50%;
+  float: left;
+}
