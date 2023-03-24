@@ -43,3 +43,5 @@ O terminal deve dar a seguinte resposta:
 Abra o seu browser de escolha e acesse qualquer um dos links abaixo:
 * 127.0.0.1:8000/
 * localhost:8000/
+
+* As edições feitas ao código no modo desenvolvedor são aplicadas imediatamente, caso alguma edição não seja aplicada, tente dar CTRL+F5 para recarregar o cache. *
