@@ -66,6 +66,8 @@ A senha e usuário de acesso são:
 
 ## Colaboradores, Orientador e Apoiadores
 
+### Colaboradores
+
 <table>
   <tr>
     <td align="center">
@@ -105,6 +107,36 @@ A senha e usuário de acesso são:
         <img src="https://avatars.githubusercontent.com/u/36458464?v=4" width="100px;" alt="Foto do Erick"/><br>
         <sub>
           <b>Erick Afonso da Costa Chagas</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Orientador
+
+<table>
+  <tr>
+        <td align="center">
+      <a href="#">
+        <img src="https://media.licdn.com/dms/image/C4D03AQGQgfToKuWo-g/profile-displayphoto-shrink_400_400/0/1668117493587?e=1684972800&v=beta&t=wPUs15Hy78MlJ2rDnRaeG3lwQgyfEWDefqjWTcecjZI" width="100px;" alt="Foto do Alexandre"/><br>
+        <sub>
+          <b>Alexandre Denicol</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Apoiadores
+
+<table>
+  <tr>
+        <td align="center">
+      <a href="#">
+        <img src="https://www.fecomercio-rs.org.br/assets/layout/images/logo_fecomercio.png" width="200px;" alt="Foto do Alexandre"/><br>
+        <sub>
+          <b>Sistema Fecomercio-RS/Sesc/Senac</b>
         </sub>
       </a>
     </td>
