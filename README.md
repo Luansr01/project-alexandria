@@ -1,6 +1,6 @@
 # project-alexandria
 
-![Site Status]https://img.shields.io/website/https/senshimun.pythonanywhere.com/
+![Site Status](https://img.shields.io/website/https/senshimun.pythonanywhere.com/)
 
 Plataforma web para o mapeamento e registro de projetos realizados pela rede Fecomercio, comunicação com seu público.
 
@@ -8,7 +8,7 @@ Plataforma web para o mapeamento e registro de projetos realizados pela rede Fec
 * O projeto é 
 
 
-##Arquitetura
+## Arquitetura
 
 O projeto é construido em Python e usa como framework o Django.
 
