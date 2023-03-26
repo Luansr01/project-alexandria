@@ -13,9 +13,11 @@
 </head>
 
 <body class="bg">
+
+  <symbol class="navButton" onclick="openNav()">&#9776;</symbol>
+
   <header class="banner">
     <div>
-      <symbol class="navButton" onclick="openNav()">&#9776;</symbol>
       <div class="logo">
       <a id="logo" href="{% url 'home' %}" onmouseover="makeBig('220%')" onmouseleave="makeSmall('200%')">Alexandria</a>  
       </div>
@@ -33,7 +35,7 @@
     <a href="{%url 'contact'%}">Contato</a>
   </div>
 
-  <div id="content" class="content">
+  <div id="content" class="content" style="{{bgimg}}">
     <div id='shade'>
     </div>
     {% block content %}

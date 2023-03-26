@@ -1,1 +1,26 @@
 {% extends 'alexandria_site/layout.html' %}
+
+{% block content %}
+<div class="objectives">
+    <h1 class="title">Objetivos de Desenvolvimento Sustentável<h1>
+    <br>
+    <p>{% lorem 3 b random %}</p>
+
+    {% for objective in objectives %}
+    <button class="accordion" onclick="accordionToggle(this)">{{objective}}</button>
+    <div class="panel">
+
+        {% for project in objective.project_set.all %}
+        <div class="projects">
+            <button class="accordion" onclick="accordionToggle(this)">{{project}} | <small>{{project.project_state}} - {{project.project_city}}</small></button>
+            <div class="panel">
+                <p>{% lorem 2 b random %}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock content %}
