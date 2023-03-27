@@ -227,15 +227,17 @@ body{
 /* <- PROJECTS PAGE -> */
 
 .objectives{
-  border-right: 5px solid var(--shadowStrong);
-  max-width: 50%;
+  margin-left: 50px;
+  max-width: 40%;
   min-height: 100vh;
-  background-color: var(--light);
+  background-color: var(--white);
+  border-bottom: 5px solid var(--dark);
 }
 
 .objectives p{
   padding: 20px;
   padding-top: 0;
+  border-bottom: 5px solid var(--shadow);
 }
 
 .objectives h1{
@@ -251,6 +253,7 @@ body{
   border-bottom: 1px dotted var(--dark);
   outline: none;
   transition: 0.1s;
+  
 }
 
 .accordion:hover{
@@ -263,13 +266,13 @@ body{
   background-color: var(--light);
   border-bottom: 5px solid var(--mutedMedium);
   overflow: hidden;
-  /*display: none;*/
   transition: 1s;
   transition-timing-function: ease-out;
 }
 
 .panel p{
-  padding: 20px;
+  padding-bottom: 30px;
+
 }
 
 .projects{
@@ -277,5 +280,6 @@ body{
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 80%;
+  
   
 }

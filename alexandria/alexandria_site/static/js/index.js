@@ -21,10 +21,10 @@ function makeSmall(size){
 function accordionToggle(el){
     acc = el.nextElementSibling;
 
-    if(acc.style.maxHeight === "300px"){
+    if(acc.style.maxHeight === "100vh"){
         acc.style.maxHeight = "0";
     }
     else{
-        acc.style.maxHeight = "300px";
+        acc.style.maxHeight = "100vh";
     }
 }
