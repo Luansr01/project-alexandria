@@ -1,0 +1,24 @@
+{% extends 'alexandria_site/layout.html' %}
+
+{% block content  %}
+<div class="subContent center">
+    <div class="contentBox">
+        <p class="contentTitle center"> Novidades </p><br><br>
+        <p class="contentText center"> Aqui você encontra todas as novidades sobre o Projeto Somar e os projetos da rede Fecomercio!</p>
+        <br>
+    </div>
+    <div class="contentBox">
+        {% for post in posts %}
+        <div onclick="location.href='#'" id="post"  class="contentBox center">
+            <hr style="width: 70%;">
+            <p id="title" class="center">{{post.title}}</p>
+            <br>
+            <p id="post-content" class="center">{{post.content}}</p>
+            <br>
+            <p id="date"> Date Posted: {{post.date_posted}}&#160 &#160</p>
+            <hr style="width: 70%;">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content  %}
