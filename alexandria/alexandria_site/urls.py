@@ -10,5 +10,8 @@ urlpatterns = [
     path("about/", views.about, name = 'about'),
     path("about_us/", views.about_us, name='about_us'),
     path("projects/", views.projects, name='projects'),
+    path("news/", views.news, name='news'),
     path("contact/", views.contact, name='contact'),
+
+    path("<str:slug>", views.project, name='project'),
 ]

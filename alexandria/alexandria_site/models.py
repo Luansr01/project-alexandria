@@ -15,6 +15,17 @@ STATE_CHOICES = (
 
 # MODELS
 
+class Post(models.Model):
+    title = models.CharField("Titulo", max_length=60)
+    slug = models.SlugField("Slug", max_length=20)
+
+    content = models.TextField("Conteúdo do Post")
+    date_posted = models.DateField("Data de Criação", auto_now_add=True)
+    date_edited = models.DateField("Data da Ultima Edição", auto_now=True)
+
+    def __str__(self):
+        return self.title
+
 class Partner(models.Model):
     name = models.CharField(max_length=50)
 

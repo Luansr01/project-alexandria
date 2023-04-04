@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="objectives">
-    <h1 class="title">Objetivos de Desenvolvimento Sustentável<h1>
+    <h1 class="title">Objetivos de Desenvolvimento Sustentável</h1>
     <br>
     <p>{% lorem 3 b random %}</p>
 
@@ -14,7 +14,8 @@
         <div class="projects">
             <button class="accordion" onclick="accordionToggle(this)">{{project}} | <small>{{project.project_state}} - {{project.project_city}}</small></button>
             <div class="panel">
-                <p>{% lorem 2 b random %}</p>
+                <p>{% lorem 2 b random %} <br><br> <a href="#">Ler Mais</a></p>
+                
             </div>
         </div>
         {% endfor %}

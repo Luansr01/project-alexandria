@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'alexandria_site',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

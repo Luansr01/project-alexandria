@@ -20,11 +20,23 @@ def projects(request):
     objectives = models.Objective.objects.all()
     return render(request, 'alexandria_site/projects.html', {
         "objectives": objectives,
-        "bgimg": "background-image: url('../static/leaves_tileable.jpg'); background-size: 600px; max-height=100%;",
+        "bgimg": "background-image: url('../static/leaves_tileable.jpg'); background-size: 50%; max-height=100%;",
         })   
+
+def news(request):
+    posts = reversed(models.Post.objects.all())
+    return render(request, 'alexandria_site/news.html', {
+        "posts": posts,
+        "bgimg": "background-color: var(--lighter);"
+
+    })
 
 def contact(request):
     return render(request, 'alexandria_site/contact.html')   
 
 def home_old(request):
-    return render(request, 'alexandria_site/home_old.html')        
+    return render(request, 'alexandria_site/home_old.html')  
+
+def project(request, slug):
+    sl = models.Project.objects.get(project_slug=slug)
+    return render(request, 'alexandria_site/project_template.html', {"project":sl})
