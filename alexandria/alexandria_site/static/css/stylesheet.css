@@ -347,6 +347,14 @@ body{
   padding-top: 20px;
 }
 
+.menu {
+  position: relative;
+  background-color: var(--lighter);
+  max-width: 40vw;
+  min-height: 100vh;
+  z-index: 300;
+}
+
 
 .accordion{
   position: relative;

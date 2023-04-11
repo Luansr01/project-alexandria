@@ -15,22 +15,23 @@
 
             <div class="accordion-nav"><div class="content-section" id="accordionNavContent"></div></div>
 
-            {% for objective in objectives %}
-            <button class="accordion" onclick="accordionToggleDown(this)">{{objective}}</button>
-            <div class="panel down">
-                {% for project in objective.project_set.all %}
-                <div class="projects">
-                    <button class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.project_state}} - {{project.project_city}}</small></button>
-                </div>
-                <div class="hidden content-section" id="{{project}}-content">
-                    <p class="title center">{{project}}</p>
-                    <p>{{project.project_about}}</p>
+            <div class="menu">
+                {% for objective in objectives %}
+                <button class="accordion" onclick="accordionToggleDown(this)">{{objective}}</button>
+                <div class="panel down">
+                    {% for project in objective.project_set.all %}
+                    <div class="projects">
+                        <button class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                    </div>
+                    <div class="hidden content-section" id="{{project}}-content">
+                        <p class="title center">{{project}}</p>
+                        <p>{{project.about}}</p>
 
+                    </div>
+                    {% endfor %}
                 </div>
                 {% endfor %}
             </div>
-            {% endfor %}
-
 
         </div>
 

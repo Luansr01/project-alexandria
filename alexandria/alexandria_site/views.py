@@ -8,7 +8,7 @@ from . import models
 # Create your views here.
 
 def home(request):
-    return render(request, 'alexandria_site/home.html')
+    return render(request, 'alexandria_site/home.html', {"title": "| Home"})
 
 def about(request):
     return render(request, 'alexandria_site/about.html')
@@ -35,9 +35,6 @@ def news(request):
 
 def contact(request):
     return render(request, 'alexandria_site/contact.html')   
-
-def home_old(request):
-    return render(request, 'alexandria_site/home_old.html')  
 
 def project(request, slug):
     sl = models.Project.objects.get(project_slug=slug)

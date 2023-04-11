@@ -21,7 +21,7 @@ class Post(models.Model):
 
     content = models.TextField("Conteúdo do Post")
 
-    images = models.ImageField("Imagem")
+    images = models.ImageField("Imagem", blank=True)
 
     date_posted = models.DateField("Data de Criação", auto_now_add=True)
     date_edited = models.DateField("Data da Ultima Edição", auto_now=True)
@@ -57,7 +57,13 @@ class Project(models.Model):
     partners = models.ManyToManyField(Partner)
 
     def __str__(self):
-        return self.project_name
+        return self.name
+
+
+class Page(models.Model):
+    title = models.CharField("Titulo da Página", max_length=50)
+    content = models.TextField("Conteúdo")
+    
     
 
     
