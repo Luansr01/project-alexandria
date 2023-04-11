@@ -28,6 +28,11 @@ O projeto é construido em Python e usa como framework o Django.
 * Os OS's utilizados foram: Windows e Arch Linux.
 * O Banco de Dados usado é o SQLite
 
+### Bibliotecas Utilizadas:
+
+* Django Extensions
+* Pillow
+
 ## Requisitos para a execução do projeto
 
 * Python 3 instalado.

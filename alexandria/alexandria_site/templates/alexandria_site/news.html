@@ -1,15 +1,15 @@
 {% extends 'alexandria_site/layout.html' %}
 
 {% block content  %}
-<div class="subContent center">
-    <div class="contentBox">
-        <p class="contentTitle center"> Novidades </p><br><br>
-        <p class="contentText center"> Aqui você encontra todas as novidades sobre o Projeto Somar e os projetos da rede Fecomercio!</p>
+<div class="news center">
+    <div class="content-section" id="newsAbout">
+        <p class="title center"> Novidades </p><br><br>
+        <p class="text center"> Aqui você encontra todas as novidades sobre o Projeto Somar e os projetos da rede Fecomercio!</p>
         <br>
     </div>
-    <div class="contentBox">
+    <div class="content-section" id="newsPosts">
         {% for post in posts %}
-        <div onclick="location.href='#'" id="post"  class="contentBox center">
+        <div onclick="location.href='#'" id="post"  class="post center">
             <hr style="width: 70%;">
             <p id="title" class="center">{{post.title}}</p>
             <br>

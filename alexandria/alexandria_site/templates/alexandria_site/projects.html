@@ -1,27 +1,45 @@
 {% extends 'alexandria_site/layout.html' %}
 
 {% block content %}
-<div class="objectives">
-    <h1 class="title">Objetivos de Desenvolvimento Sustentável</h1>
-    <br>
-    <p>{% lorem 3 b random %}</p>
+<div class="content">
+    <div class="content-section center">
+        <h1 class="title center">Objetivos de Desenvolvimento Sustentável</h1>
+    <p>{% lorem 3 b random %}</p><br>
+    </div>
 
-    {% for objective in objectives %}
-    <button class="accordion" onclick="accordionToggle(this)">{{objective}}</button>
-    <div class="panel">
+    <hr style="width: 60%;">
 
-        {% for project in objective.project_set.all %}
-        <div class="projects">
-            <button class="accordion" onclick="accordionToggle(this)">{{project}} | <small>{{project.project_state}} - {{project.project_city}}</small></button>
-            <div class="panel">
-                <p>{% lorem 2 b random %} <br><br> <a href="#">Ler Mais</a></p>
-                
+    <div class="content-section">
+
+        <div class="accordion-wrapper" id="accordionWrapper"> 
+
+            <div class="accordion-nav"><div class="content-section" id="accordionNavContent"></div></div>
+
+            {% for objective in objectives %}
+            <button class="accordion" onclick="accordionToggleDown(this)">{{objective}}</button>
+            <div class="panel down">
+                {% for project in objective.project_set.all %}
+                <div class="projects">
+                    <button class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.project_state}} - {{project.project_city}}</small></button>
+                </div>
+                <div class="hidden content-section" id="{{project}}-content">
+                    <p class="title center">{{project}}</p>
+                    <p>{{project.project_about}}</p>
+
+                </div>
+                {% endfor %}
             </div>
+            {% endfor %}
+
+
         </div>
-        {% endfor %}
+
+        {% comment %} <div id="accordionNav" class="panel right">
+            <div class="accordion-nav-content">a</div>
+        </div> {% endcomment %}
+
 
     </div>
-    {% endfor %}
 
 </div>
 {% endblock content %}

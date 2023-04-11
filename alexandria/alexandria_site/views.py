@@ -18,8 +18,10 @@ def about_us(request):
 
 def projects(request):
     objectives = models.Objective.objects.all()
+    projects = models.Project.objects.all()
     return render(request, 'alexandria_site/projects.html', {
         "objectives": objectives,
+        "projects": projects,
         "bgimg": "background-image: url('../static/leaves_tileable.jpg'); background-size: 50%; max-height=100%;",
         })   
 
@@ -39,4 +41,4 @@ def home_old(request):
 
 def project(request, slug):
     sl = models.Project.objects.get(project_slug=slug)
-    return render(request, 'alexandria_site/project_template.html', {"project":sl})
+    return render(request, 'alexandria_site/project_page.html', {"project":sl})

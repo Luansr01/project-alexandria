@@ -20,6 +20,9 @@ class Post(models.Model):
     slug = models.SlugField("Slug", max_length=20)
 
     content = models.TextField("Conteúdo do Post")
+
+    images = models.ImageField("Imagem")
+
     date_posted = models.DateField("Data de Criação", auto_now_add=True)
     date_edited = models.DateField("Data da Ultima Edição", auto_now=True)
 
@@ -27,7 +30,10 @@ class Post(models.Model):
         return self.title
 
 class Partner(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField("Nome", max_length=50)
+    about = models.TextField("Sobre", max_length=500, blank=True)
+    logo = models.ImageField("Logo", blank=True)
+    site = models.URLField("Site", blank=True)
 
     def __str__(self):
         return self.name
@@ -39,17 +45,19 @@ class Objective(models.Model):
         return self.name
 
 class Project(models.Model):
-    project_name = models.CharField("Nome do Projeto", max_length=50)
-    project_state = models.CharField("Estado", max_length=2, choices=STATE_CHOICES)
-    project_city = models.CharField("Cidade", max_length=50)
-    project_slug = models.SlugField("Slug", help_text="<small>Nome do Projeto em minúsculo mudando os espaços para hífens.<br>Ex: projeto-somar, projeto-alexandria, etc.", max_length=50)
+    name = models.CharField("Nome do Projeto", max_length=50)
+    state = models.CharField("Estado", max_length=2, choices=STATE_CHOICES)
+    city = models.CharField("Cidade", max_length=50)
+    slug = models.SlugField("Slug", help_text="<small>Nome do Projeto em minúsculo mudando os espaços para hífens.<br>Ex: projeto-somar, projeto-alexandria, etc.", max_length=50)
 
-    project_about = models.TextField("Sobre o Projeto")
+    about = models.TextField("Sobre o Projeto")
 
     ODS = models.ManyToManyField(Objective)
-    project_cause = models.CharField("Causa", max_length=30, default="N/A")
-    project_partners = models.ManyToManyField(Partner)
+    cause = models.CharField("Causa", max_length=30, blank=True)
+    partners = models.ManyToManyField(Partner)
 
     def __str__(self):
         return self.project_name
+    
+
     
