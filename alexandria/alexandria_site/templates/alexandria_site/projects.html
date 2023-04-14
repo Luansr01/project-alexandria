@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="content">
-    <div class="content-section center">
+    <div class="content-section center" style="min-width:90vw;">
         <h1 class="title center">Objetivos de Desenvolvimento Sustentável</h1>
-    <p>{% lorem 3 b random %}</p><br>
+    <p>Aqui ficam os projetos executados por meio do programa SOMAR, categorizados todos no Objetivo de Desenvolvimento Social para que o projeto contribui.</p><br>
     </div>
 
     <hr style="width: 60%;">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="hidden content-section" id="{{project}}-content">
                         <p class="title center">{{project}}</p>
-                        <p>{{project.about}}</p>
+                        <p style="font-size: 1.2vw">{{project.about}}</p>
 
                     </div>
                     {% endfor %}

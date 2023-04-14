@@ -19,7 +19,7 @@
   <header class="banner">
     <div>
       <div class="logo">
-      <a id="logo" href="{% url 'home' %}" onmouseover="makeBig('220%')" onmouseleave="makeSmall('200%')">Alexandria</a>  
+      <img id="logo" src="../static/logo-simple.png" alt="LOGO" >  
       </div>
     </div>
   </header>
@@ -41,6 +41,8 @@
     {% block content %}
     {% endblock %}
 
-  <footer class="footer"></footer>
+  <footer class="footer">
+    <div style="background-color: #17fc0350; position:fixed; bottom: 5px; left: 5px; width:fit-content; height:fit-content;"><p style="padding:2px; padding-bottom:0px;"> ALPHA </p></div>
+  </footer>
 </body>
 </html>

@@ -10,14 +10,6 @@ function closeNav() {
     document.getElementById("shade").style.backgroundColor = "#00000000"
 }
 
-function makeBig(size){
-    document.getElementById("logo").style.fontSize = size;
-}
-
-function makeSmall(size){
-    document.getElementById("logo").style.fontSize = size;
-}
-
 function accordionToggleDown(el){
     acc = el.nextElementSibling.style;
     acc.maxHeight == "100vh" ? acc.maxHeight = "0" : acc.maxHeight = "100vh";
@@ -32,4 +24,9 @@ function accordionNavToggle(el){
     accNavContentEl = document.getElementById("accordionNavContent")
     accNavContentEl.innerHTML = accNavContent;
 
+}
+
+function changeSize(el, sizeW, sizeH){
+    el.style.width = sizeW;
+    el.style.height = sizeH;
 }
