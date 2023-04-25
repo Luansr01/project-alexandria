@@ -24,8 +24,9 @@
                         <button class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
                     </div>
                     <div class="hidden content-section" id="{{project}}-content">
-                        <p class="title center">{{project}}</p>
-                        <p style="font-size: 1.2vw">{{project.about}}</p>
+                        <p class="title" style="text-align: center;">{{project}}</p>
+                        <p style="font-size: 1.2vw; margin: 1vw;">{{project.about | truncatewords:300}}</p>
+                        <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> {{project}} </button></a>
 
                     </div>
                     {% endfor %}

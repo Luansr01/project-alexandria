@@ -37,5 +37,5 @@ def contact(request):
     return render(request, 'alexandria_site/contact.html')   
 
 def project(request, slug):
-    sl = models.Project.objects.get(project_slug=slug)
+    sl = models.Project.objects.get(slug=slug)
     return render(request, 'alexandria_site/project_page.html', {"project":sl})
