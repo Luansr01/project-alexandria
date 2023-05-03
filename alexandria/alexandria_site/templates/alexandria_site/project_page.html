@@ -1,7 +1,38 @@
 {% extends 'alexandria_site/layout.html' %}
 
 {% block content %}
-<div class="content-section">
-    <p class="title" style="text-align: center;">{{project}}</p>
+<div style="font-family:roboto; font-size: 1.7vw;">
+    <p class="title" style="text-align: center; margin-top: 8vh;">{{project}}</p>
+    <hr>
+    <div class="project-info">
+        <p class="project-ods">
+            <abbr title="Objetivo de Desenvolvimento Sustentável">ODS</abbr> | {{ods}}
+        </p>
+        <div style="display: flex; justify-content: space-evenly; min-width: 100vw;">
+        <p class="project-city">Local | {{project.city}} - {{project.state}} </p>
+        <p class="project-cause">Causa | {{project.cause}}</p>
+        </div>
+
+    </div>
+    <div class="content-section" style="background-color: #3181c60b;margin: 0 auto; margin-top: 5vh; margin-bottom: 10vh; max-width: 80vw; font-size: .9em;">
+            {{project.about|linebreaks}} 
+    </div>
+    <hr>
+    <p style="text-align: center; font-weight: 500;">Parceiros:</p><br><br>
+    <div class="project-info">
+        
+        <div class="project-partners">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2vw;">
+                    {% for partner in partners %}
+                        <div style="text-align: center">
+                            <img src="a" width="100vw;"/><br>
+                            <sub style="font-size: 2vw;">
+                                {{partner.name}}
+                            </sub>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
 </div>
 {% endblock content%}

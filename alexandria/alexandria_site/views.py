@@ -38,4 +38,6 @@ def contact(request):
 
 def project(request, slug):
     sl = models.Project.objects.get(slug=slug)
-    return render(request, 'alexandria_site/project_page.html', {"project":sl})
+    ods = ", ".join(list(map(lambda n : n.name, list(sl.ODS.all())))) #Gets all of the names of the ODSs associated with the project and concatenates them into a string separated by a comma.
+    partners = list(sl.partners.all())
+    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners})

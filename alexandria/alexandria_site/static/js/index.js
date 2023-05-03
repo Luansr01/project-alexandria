@@ -1,4 +1,13 @@
-
+// window.onload = function () {
+//     window.onscroll = function () {
+//         console.log(document.body.scrollTop);
+//       if (document.body.scrollTop == 0) {
+//         document.getElementById("homeBanner").height = "100vh";
+//       }else{
+//         document.getElementById("homeBanner").height = "0vh";
+//       }
+//     };
+//   };
 
 function openNav() {
     document.getElementById("layoutSidenav").style.width = "150px";
@@ -11,8 +20,11 @@ function closeNav() {
 }
 
 function accordionToggleDown(el){
-    acc = el.nextElementSibling.style;
-    acc.maxHeight == "100vh" ? acc.maxHeight = "0" : acc.maxHeight = "100vh";
+    panelDown = el.nextElementSibling
+    maxH = panelDown.firstElementChild.offsetHeight * panelDown.childElementCount
+
+    acc = panelDown.style;
+    acc.maxHeight == "" ? acc.maxHeight = maxH + "px" : acc.maxHeight = "";
 }
 
 function accordionNavToggle(el){

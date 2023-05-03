@@ -2,32 +2,41 @@
 
 {% block content %}
 <div class="content">
-    <div class="content-section center" style="min-width:90vw;">
+    <div class="content-section center" style="min-width:90vw; font-size: 1.7vw;">
         <h1 class="title center">Objetivos de Desenvolvimento Sustentável</h1>
     <p>Aqui ficam os projetos executados por meio do programa SOMAR, categorizados todos no Objetivo de Desenvolvimento Social para que o projeto contribui.</p><br>
     </div>
 
-    <hr style="width: 60%;">
+    <hr>
 
     <div class="content-section">
 
         <div class="accordion-wrapper" id="accordionWrapper"> 
 
-            <div class="accordion-nav"><div class="content-section" id="accordionNavContent"></div></div>
+            <div class="accordion-nav">
+                <div class="content-section" id="accordionNavContent">
+                    
+                </div>
+            </div>
 
             <div class="menu">
                 {% for objective in objectives %}
-                <button class="accordion" onclick="accordionToggleDown(this)">{{objective}}</button>
+                <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{objective}}</button>
                 <div class="panel down">
                     {% for project in objective.project_set.all %}
-                    <div class="projects">
-                        <button class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
-                    </div>
-                    <div class="hidden content-section" id="{{project}}-content">
-                        <p class="title" style="text-align: center;">{{project}}</p>
-                        <p style="font-size: 1.2vw; margin: 1vw;">{{project.about | truncatewords:300}}</p>
-                        <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> {{project}} </button></a>
-
+                    <div>
+                        <div class="projects" >
+                            <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                        </div>
+                        <div class="hidden content-section" id="{{project}}-content">
+                            <p class="title" style="text-align: center;">{{project}}</p>
+                            <hr>
+                                <div style="font-size: 1.3vw;">
+                                    {{project.about | linebreaks | truncatewords:120}}
+                                </div>
+                            <hr>
+                            <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> {{project}} </button></a>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>

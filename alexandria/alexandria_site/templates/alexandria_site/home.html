@@ -1,24 +1,24 @@
 {% extends 'alexandria_site/layout.html' %}
 
 {%block content%}
-<div class="home-banner" style="position:relative;">
-    <p style="font-weight: 0.01; font-style: italic; text-decoration: underline dotted 2.5px;font-size: 7vw; position: absolute; color: #e9ffde; top: 40%; left: 5%; z-index: 20; opacity: 70%; font-family: serif; ">
-        Fazendo + pelo futuro que queremos.
+<div class="home-banner" style="position:relative;" id="homeBanner">
+    <p style="font-weight: thin; font-style: italic; font-size: 7vw; position: absolute; color: #e9ffde; top: 40%; left: 5%; z-index: 20; opacity: 70%; font-family: roboto; ">
+        <em style="text-decoration: underline dotted .1vw;">Fazendo</em> <em class="plus-sign">+</em> <em style="text-decoration: underline dotted .1vw;">pelo futuro que queremos.</em>
     </p>
     <img src="../static/bannerimage.jpg"></img>
 </div>
-<hr style="width:75%; border: none; height: 1px; background-color: black; margin-top: 5vh; margin-bottom: 5vh;">
+<hr class="theme-break">
 <div class="content">
-    <div class="content-section center" style="background-color: #9ad47d30; border-radius: 50px;">
+    <div class="content-section center" style="border: 0.1vw solid #5cc4dc; border-radius: 2vw;">
         <p class="title"> O que é o Programa SOMAR? </p>
         <p style="font-size: 1.7vw; padding:20px;">O SOMAR é um programa de impacto social do Sistema Fecomércio-RS/Sesc/Senac. <br> Por meio dele, serão executados projetos que transformem realidades das comunidades em que o sistema atua e que contribuam para os Objetivos de Desenvolvimento Sustentável, da ONU e bandeiras Fecomércio.
             Possuem como objetivo final a transformação de uma realidade vigente, sempre levando em consideração as questões sociais, ambientais e de governança das instituições. Sua execução está atrelada aos serviços ofertados pelo Sistema e seus públicos atendidos.
             São potencializados em parceria com outras partes interessadas, fortalecendo a imagem e o protagonismo do Sistema Comércio.</p>
     </div>
-    <div class="content-section center" style="background-color: #9ad47d30; border-radius: 50px; text-align: center;">
+    <div class="content-section center" style="border: 0.1vw solid #5cc4dc; border-radius: 2vw; text-align: center;">
         <p class="title"> Onde posso encontrar os projetos executados pelo SOMAR? </p>
-        <p style="font-size: 1.7vw; padding:20px;"> Em nossa aba de projetos, onde todos são categorizados de acordo com o Objetivo de Desenvolvimento Social em que se encaixam.</p>
-        <a href="{%url 'projects'%}"> <button class="link-button" onmousedown="changeSize(this, '65%', '10vh')" onmouseup="changeSize(this, '70%', '10vh')"> Projetos </button></a>
+        <p style="font-size: 1.7vw; padding:20px;"> Em nossa página de projetos, onde todos são categorizados de acordo com o Objetivo de Desenvolvimento Social em que se encaixam.</p>
+        <a href="{%url 'projects'%}"> <button class="link-button"> Projetos </button></a>
     </div>
     
 </div>
