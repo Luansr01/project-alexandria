@@ -21,7 +21,7 @@
 
             <div class="menu">
                 {% for objective in objectives %}
-                <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{objective}}</button>
+                <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{objective}} | {{objective.project_set.all.count}}</button>
                 <div class="panel down">
                     {% for project in objective.project_set.all %}
                     <div>
@@ -35,7 +35,7 @@
                                     {{project.about | linebreaks | truncatewords:120}}
                                 </div>
                             <hr>
-                            <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> {{project}} </button></a>
+                            <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> Leia Mais </button></a>
                         </div>
                     </div>
                     {% endfor %}

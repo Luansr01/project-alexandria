@@ -18,6 +18,16 @@
             {{project.about|linebreaks}} 
     </div>
     <hr>
+    {% if images %}
+    <div class="project-images">
+        {% for image in images %}
+            {% if image %}
+                <a class="project-image" href="{{image.url}}"><img src="{{image.url}}"></a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {%endif%}
+    <hr>
     <p style="text-align: center; font-weight: 500;">Parceiros:</p><br><br>
     <div class="project-info">
         

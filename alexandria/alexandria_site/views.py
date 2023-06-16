@@ -37,7 +37,14 @@ def contact(request):
     return render(request, 'alexandria_site/contact.html')   
 
 def project(request, slug):
+    
     sl = models.Project.objects.get(slug=slug)
     ods = ", ".join(list(map(lambda n : n.name, list(sl.ODS.all())))) #Gets all of the names of the ODSs associated with the project and concatenates them into a string separated by a comma.
     partners = list(sl.partners.all())
-    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners})
+
+    if (sl.image_1 or sl.image_2 or sl.image_3):
+        images = [sl.image_1, sl.image_2, sl.image_3]
+    else:
+        images = False
+
+    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images})

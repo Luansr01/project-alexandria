@@ -16,12 +16,16 @@ STATE_CHOICES = (
 # MODELS
 
 class Post(models.Model):
+    def folder_name(self, postname):
+        return f'{self.title}_blog_images/{postname}'
+
+
     title = models.CharField("Titulo", max_length=60)
     slug = models.SlugField("Slug", max_length=20)
 
     content = models.TextField("Conteúdo do Post")
 
-    images = models.ImageField("Imagem", blank=True)
+    image = models.ImageField("Imagem", upload_to=folder_name, blank=True)
 
     date_posted = models.DateField("Data de Criação", auto_now_add=True)
     date_edited = models.DateField("Data da Ultima Edição", auto_now=True)
@@ -41,10 +45,15 @@ class Partner(models.Model):
 class Objective(models.Model):
     name = models.CharField(max_length=60) 
 
+    icon = models.ImageField("Icone", upload_to="icons", blank=True)
+
     def __str__(self):
         return self.name
 
 class Project(models.Model):
+    def folder_name(self, project_name):
+        return f'{self.name}_project_images/{project_name}'
+
     name = models.CharField("Nome do Projeto", max_length=50)
     state = models.CharField("Estado", max_length=2, choices=STATE_CHOICES)
     city = models.CharField("Cidade", max_length=50)
@@ -54,16 +63,22 @@ class Project(models.Model):
 
     ODS = models.ManyToManyField(Objective)
     cause = models.CharField("Causa", max_length=30, blank=True)
-    partners = models.ManyToManyField(Partner)
+    partners = models.ManyToManyField(Partner, verbose_name="Parceiros")
 
     def __str__(self):
         return self.name
+    
+
+for i in range(3):
+    Project.add_to_class(f'image_{i+1}', models.ImageField("Imagem", upload_to=Project.folder_name, blank=True))
 
 
 class Page(models.Model):
     title = models.CharField("Titulo da Página", max_length=50)
     content = models.TextField("Conteúdo")
     
+    def __str__(self):
+        return self.title
     
 
     
