@@ -51,13 +51,15 @@ class Objective(models.Model):
         return self.name
 
 class Project(models.Model):
-    def folder_name(self, project_name):
-        return f'{self.name}_project_images/{project_name}'
+    def folder_name(self, name):
+        return f'{self.name}_project_images/{name}'
+
+    def gen_slug(self, name):
+        return self.name.lower().replace(" ", "-")
 
     name = models.CharField("Nome do Projeto", max_length=50)
     state = models.CharField("Estado", max_length=2, choices=STATE_CHOICES)
     city = models.CharField("Cidade", max_length=50)
-    slug = models.SlugField("Slug", help_text="<small>Nome do Projeto em minúsculo mudando os espaços para hífens.<br>Ex: projeto-somar, projeto-alexandria, etc.", max_length=50)
 
     about = models.TextField("Sobre o Projeto")
 
@@ -71,6 +73,8 @@ class Project(models.Model):
 
 for i in range(3):
     Project.add_to_class(f'image_{i+1}', models.ImageField("Imagem", upload_to=Project.folder_name, blank=True))
+
+Project.add_to_class('slug', models.SlugField("Slug", editable=False, blank=False, default=Project.gen_slug))
 
 
 class Page(models.Model):

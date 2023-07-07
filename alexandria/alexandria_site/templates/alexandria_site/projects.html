@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="content">
-    <div class="content-section center" style="min-width:90vw; font-size: 1.7vw;">
+    <div class="content-section center" style="min-width:90vw; font-size: 1.7rem;">
         <h1 class="title center">Objetivos de Desenvolvimento Sustentável</h1>
     <p>Aqui ficam os projetos executados por meio do programa SOMAR, categorizados todos no Objetivo de Desenvolvimento Social para que o projeto contribui.</p><br>
     </div>
 
     <hr>
 
-    <div class="content-section">
+    <div class="content-section" style="display: flex;justify-content: center;">
 
         <div class="accordion-wrapper" id="accordionWrapper"> 
 
@@ -31,7 +31,7 @@
                         <div class="hidden content-section" id="{{project}}-content">
                             <p class="title" style="text-align: center;">{{project}}</p>
                             <hr>
-                                <div style="font-size: 1.3vw;">
+                                <div style="font-size: calc(var(--fontSize) * 0.015);">
                                     {{project.about | linebreaks | truncatewords:120}}
                                 </div>
                             <hr>

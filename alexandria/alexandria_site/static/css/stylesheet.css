@@ -77,12 +77,11 @@ time, mark, audio, video {
 }
 
 
-
-
 body{
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  max-width: fit-content;
+  margin: 0;
 }
 
 hr {
@@ -95,7 +94,7 @@ hr {
 }
 
 :root{
-  --bannerSize: 10vh;
+  --bannerSize: 5rem;
 
   --accordion: #225c90;
   --sub-accordion: #0D4373;
@@ -120,6 +119,8 @@ hr {
   --mutedMedium: #ffffff;
 
   --dark: #082239;
+
+  --fontSize: 100rem;
 }
 
 .page-bg{
@@ -139,15 +140,16 @@ hr {
 }
 
 .footer{
-  position:static;
+  position:relative;
   margin-top: 2em;
   background-color: var(--medium);
   box-shadow: 0px -2px 30px var(--shadow);
   border-bottom: 3px solid var(--dark);
-  width: 100vw;
+  width: 100%;
   height: 80px;
   bottom: 0;
   left: 0;
+  margin-bottom: 0;
   z-index: 998;
 }
 
@@ -173,7 +175,7 @@ hr {
 .logo{
   margin: 0 auto;
   margin-top: 0.5vh;
-  width: 15vw;
+  width: 15rem;
   height: 100%;
   transition: 0.2s;
 }
@@ -229,7 +231,7 @@ hr {
   position: absolute;
   top: 0;
   right: 10%;
-  font-size: 36px;
+  font-size: calc(var(--fontSize) * 0.0225);
   margin-left: 50px;
 }
 
@@ -238,7 +240,7 @@ hr {
   color:#ffffff;
   mix-blend-mode:difference;
   z-index: 9999;
-  font-size: 4vw;
+  font-size: calc(var(--fontSize) * 0.03);
   cursor: pointer;
   vertical-align: middle;
   line-height: calc(var(--bannerSize) - (0.2 * var(--bannerSize)));
@@ -250,33 +252,29 @@ hr {
   flex: 1;
   top: 120px;
   min-height: 100vh;
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 /* <- About Page -> */
 
-.about{
-  padding: 2%;
+
+.content-section .image{
+  border: 2px solid red;
+  width: min(50%, 50rem);
 }
 
-.about .image{
-  position: fixed;
-  padding-top: 40px;
-  right: 2%;
-  width: 45%;
-  float: right;
-}
-
-.about .image img{
+.image img{
+  display: block;
   box-shadow:5px 10px 20px #7a7a7a;
   max-width: 100%;
   max-height: 100%;
 }
 
-.about .text{
-  font-size: 13px;
-  margin-right: 50%;
+ .text{
+  border: 1px solid red;
+  width: 50rem;
+  font-size: calc(var(--fontSize) * 0.012);
   padding: 10px;
 }
 
@@ -300,7 +298,7 @@ hr {
 
 .title{
   margin: 3vh;
-  font-size: 3vw;
+  font-size: calc(var(--fontSize) * 0.0336);
   font-family: roboto;
   font-weight: 500;
 
@@ -322,14 +320,14 @@ hr {
 }
 
 .content-section #date{
-  font-size: 0.8em;
+  font-size: calc(var(--fontSize) * 0.008);
   text-align: right;
 }
 
 .content-section p{
   font-family:roboto;
   font-weight: 200;
-  margin: 5vh;
+  margin: calc(var(--fontSize) * 0.027);
 }
 
 .news{
@@ -393,7 +391,7 @@ hr {
 .link-button{
   background-color: var(--button);
   width: 30%; height: 10vh; 
-  font-size: 2.5vw; 
+  font-size: calc(var(--fontSize) * 0.02); 
   margin: 2vw;
   font-family: roboto;
   font-weight: 200;
@@ -410,8 +408,8 @@ hr {
 /* <- PROJECTS PAGE -> */
 
 .accordion-wrapper{
-  width: 40vw;
-  min-height: 100vh;
+  width: 40rem;
+  min-height: 4.5rem;
   background-color: var(--accordion-nav);
   border-top: .5vw solid var(--accordion);
   border-bottom: .2vw solid var(--accordion);
@@ -425,12 +423,12 @@ hr {
 }
 
 .accordion-wrapper.nav-active{
-  width: 100%;
+  width: 100rem;
 }
 
 
 .accordion-wrapper p{
-  padding: 2vh;
+  padding: 1rem;
   padding-top: 0;
   
 }
@@ -438,16 +436,16 @@ hr {
 .menu {
   position: relative;
   background-color: var(--lighter);
-  max-width: 40vw;
-  min-height: 100vh;
+  max-width: 40rem;
+  min-height: 4.5rem;
   z-index: 300;
 }
 
 
 .accordion{
   position: relative;
-  width: 40vw;
-  height: 7vh;
+  width: 40rem;
+  height: 4.5rem;
   background-color: var(--accordion);
   border: none;
  
@@ -456,13 +454,13 @@ hr {
   z-index: 300;
 
   font-family: roboto;
-  font-size: 1.6vw;
+  font-size: calc(var(--fontSize) * 0.016);
   color: white;
 }
 
 .sub.accordion{
   width: 100%;
-  height: 6vh;
+  height: 5rem;
   background-color: var(--sub-accordion);
 }
 
@@ -503,10 +501,10 @@ hr {
 
 .accordion-nav{
   max-height: 100%;
-  max-width: 50vw;
+  max-width: 50rem;
   float: right;
   position: absolute;
-  right: 0;
+  right: calc(50% - 45rem);
   overflow: hidden;
 
 
@@ -591,9 +589,9 @@ hr {
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:320px) {
   p {
-    font-size: 1.2em;
+    font-size: calc(var(--fontSize) * 0.012);
   }
 
   .project-images{
