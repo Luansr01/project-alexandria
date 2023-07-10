@@ -8,7 +8,7 @@ from . import models
 # Create your views here.
 
 def home(request):
-    return render(request, 'alexandria_site/home.html', {"title": "| Home"})
+    return render(request, 'alexandria_site/home.html', {"title": "Página Inicial"})
 
 def about(request):
     return render(request, 'alexandria_site/about.html')

@@ -82,6 +82,8 @@ body{
   flex-direction: column;
   max-width: fit-content;
   margin: 0;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 hr {
@@ -120,7 +122,7 @@ hr {
 
   --dark: #082239;
 
-  --fontSize: 100rem;
+  --fontSize: 80rem;
 }
 
 .page-bg{
@@ -260,7 +262,6 @@ hr {
 
 
 .content-section .image{
-  border: 2px solid red;
   width: min(50%, 50rem);
 }
 
@@ -272,10 +273,9 @@ hr {
 }
 
  .text{
-  border: 1px solid red;
   width: 50rem;
   font-size: calc(var(--fontSize) * 0.012);
-  padding: 10px;
+  padding: 1rem;
 }
 
 #shade{
@@ -284,9 +284,13 @@ hr {
   height: 100%;
   width: 100%;
   z-index: 999;
-  background-color: #00000000;
+
   transition: 0.3s;
   pointer-events: none;
+}
+
+.shade-toggle{
+  background-color: rgba(0, 0, 0, 0.314);
 }
 
 .content-section{
@@ -327,7 +331,7 @@ hr {
 .content-section p{
   font-family:roboto;
   font-weight: 200;
-  margin: calc(var(--fontSize) * 0.027);
+  margin: 2rem;
 }
 
 .news{
@@ -550,28 +554,38 @@ hr {
   margin-inline: 10vw;
 
 
-  height: 25vw; 
+  height: fit-content; 
 
 }
 
-.project-images a{
+.project-images button{
   max-height: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
   
 
-  max-width: calc(100% / 3);
+  max-width: 30%;
+  width: calc(100% / 3);
   cursor: pointer;
 
   transition: 200ms;
 }
 
-.project-images a:hover{
-  transform: scale(1.2);  
+.project-images button:focus{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-55%) scale(1) ;  
   margin: 2rem;
+  z-index: 999999;
+  cursor: default;
 }
 
-.project-images a img{
-  border: .2rem solid var(--dark);
-  border-radius: .5rem;
+
+.project-images button img{
+  border: 1px solid var(--dark);
+  border-radius: 0.12rem;
   display: block;
   max-height: 100%;
   max-width: 100%;
@@ -589,9 +603,13 @@ hr {
 
 
 
-@media only screen and (max-width:320px) {
+@media screen and (max-width:600px) {
   p {
     font-size: calc(var(--fontSize) * 0.012);
+  }
+
+  .open-image{
+    transform: scale(2) translateX(-40%);  
   }
 
   .project-images{

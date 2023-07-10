@@ -22,12 +22,13 @@
     <div class="project-images">
         {% for image in images %}
             {% if image %}
-                <a class="project-image" href="{{image.url}}"><img src="{{image.url}}"></a>
+                <button class="project-image" onload="makeFocusable(this)" onfocus="shadeBackToggle()" onfocusout="shadeBackToggle()"><img src="{{image.url}}"></button>
             {% endif %}
         {% endfor %}
     </div>
-    {%endif%}
     <hr>
+    {%endif%}
+
     <p style="text-align: center; font-weight: 500;">Parceiros:</p><br><br>
     <div class="project-info">
         

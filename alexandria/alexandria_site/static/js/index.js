@@ -9,14 +9,30 @@
 //     };
 //   };
 
+
+
+
+function makeFocusable(el){
+    el.setAttribute('tabindex', '0');
+}
+
+function shadeBackToggle(){
+    document.getElementById("shade").classList.toggle("shade-toggle") 
+    console.log(document.getElementById("shade").style.backgroundColor)
+}
+
 function openNav() {
     document.getElementById("layoutSidenav").style.width = "150px";
-    document.getElementById("shade").style.backgroundColor = "#00000050"
+    shadeBackToggle()
 }
 
 function closeNav() {
     document.getElementById("layoutSidenav").style.width = "0";
-    document.getElementById("shade").style.backgroundColor = "#00000000"
+    shadeBackToggle()
+}
+
+function openImg(el){
+    el.classList.toggle("open-image");
 }
 
 function accordionToggleDown(el){
