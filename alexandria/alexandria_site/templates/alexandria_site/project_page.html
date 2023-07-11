@@ -8,7 +8,7 @@
         <p class="project-ods">
             <abbr title="Objetivo de Desenvolvimento Sustentável">ODS</abbr> | {{ods}}
         </p>
-        <div style="display: flex; justify-content: space-evenly; min-width: 100vw;">
+        <div style="display: flex; justify-content: space-evenly; gap:5vw;">
         <p class="project-city">Local | {{project.city}} - {{project.state}} </p>
         <p class="project-cause">Causa | {{project.cause}}</p>
         </div>
@@ -22,7 +22,7 @@
     <div class="project-images">
         {% for image in images %}
             {% if image %}
-                <button class="project-image" onload="makeFocusable(this)" onfocus="shadeBackToggle()" onfocusout="shadeBackToggle()"><img src="{{image.url}}"></button>
+                <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="https://source.unsplash.com/featured/{{value | random}}"></button>
             {% endif %}
         {% endfor %}
     </div>

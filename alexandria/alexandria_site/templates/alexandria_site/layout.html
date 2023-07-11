@@ -17,11 +17,9 @@
   <symbol class="nav-button" onclick="openNav()">&#9776;</symbol>
 
   <header class="banner">
-    <div>
-      <div class="logo">
-      <img id="logo" src="../static/logo-simple.png" alt="LOGO" >  
-      </div>
-    </div>
+      <a href="{%url 'home'%}" class="logo">
+        <img id="logo" src="../static/logo-simple.png" alt="LOGO" >  
+      </a>
   </header>
   
   <script src="{% static 'js/index.js' %}"></script>
@@ -41,7 +39,7 @@
     {% endblock %}
 
   <footer class="footer">
-    <div style="background-color: #17fc0350; position:fixed; bottom: .5vw; left: .5vw; width:fit-content; height:fit-content;"><p style="padding:.5vw; padding-bottom:0px; font-size: 1vw;"> ALPHA </p></div>
+    <div style="border-radius: 5px;background-color: #17fc0350; position:fixed; bottom: .5vw; left: .5vw; width:fit-content; height:fit-content; opacity: 70%;"><p style="padding-inline:.4vw; padding-block:.2vw; font-size: 1vw;"> ALPHA </p></div>
   </footer>
 </body>
 </html>

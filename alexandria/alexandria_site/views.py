@@ -47,4 +47,4 @@ def project(request, slug):
     else:
         images = False
 
-    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images})
+    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images, "value":range(5000)})

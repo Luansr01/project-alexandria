@@ -80,10 +80,11 @@ time, mark, audio, video {
 body{
   display: flex;
   flex-direction: column;
-  max-width: fit-content;
+  max-width: 100dvw;
   margin: 0;
   min-height: 100%;
   min-width: 100%;
+  overflow-x: hidden;
 }
 
 hr {
@@ -131,7 +132,6 @@ hr {
 
 
 .banner{ 
-  position:static;
   z-index: 9998;
   background-color: var(--whiter);
   height: var(--bannerSize);
@@ -147,7 +147,7 @@ hr {
   background-color: var(--medium);
   box-shadow: 0px -2px 30px var(--shadow);
   border-bottom: 3px solid var(--dark);
-  width: 100%;
+  width: 100vw;
   height: 80px;
   bottom: 0;
   left: 0;
@@ -175,24 +175,26 @@ hr {
 }
 
 .logo{
+  display: block;
   margin: 0 auto;
-  margin-top: 0.5vh;
+  margin-block: 1rem;
   width: 15rem;
-  height: 100%;
+  height: 3rem;
   transition: 0.2s;
 }
 
 .logo:hover{
-  width: 16vw;
+  transform: scale(1.1);
 }
 
 .logo img{
+  object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
 
-/* DEPRECATED */
+/* DEPRECATED TEXT LOGO */
 /* .logo a{
   color: var(--dark);
   text-decoration:underline var(--dark) double;
@@ -394,14 +396,14 @@ hr {
 
 .link-button{
   background-color: var(--button);
-  width: 30%; height: 10vh; 
+  width: 35%; height: 7rem; 
   font-size: calc(var(--fontSize) * 0.02); 
-  margin: 2vw;
+  margin: 2rem;
   font-family: roboto;
   font-weight: 200;
   color: white;
-  border: 1px groove var(--shadow);
-  border-radius: 1vw;
+  border: 3px groove var(--shadow);
+  border-radius: 10px;
 }
 
 .link-button:hover{
@@ -415,13 +417,13 @@ hr {
   width: 40rem;
   min-height: 4.5rem;
   background-color: var(--accordion-nav);
-  border-top: .5vw solid var(--accordion);
+  border-top: .5rem solid var(--accordion);
   border-bottom: .2vw solid var(--accordion);
   margin: 0;
-  margin-right: 0;
+  margin-right: 0; 
   overflow: hidden;
 
-  transition: 0.5s;
+  transition: 250ms;
 
   position: relative;
 }
@@ -537,6 +539,7 @@ hr {
   justify-content:space-evenly;
   gap: 1vw;
 
+  min-width: 100vw;
   width: 100vw;
   margin: 0 auto;
 
@@ -554,43 +557,53 @@ hr {
   margin-inline: 10vw;
 
 
-  height: fit-content; 
+  height: fit-content;
+  max-width: 100vw;
 
 }
 
 .project-images button{
   max-height: 100%;
-  background-color: transparent;
+  background-color: #00000020;
   border: none;
   padding: 0;
   
 
-  max-width: 30%;
-  width: calc(100% / 3);
+  width: 71%;
+  height: 95%;
   cursor: pointer;
 
   transition: 200ms;
+
 }
 
 .project-images button:focus{
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translateX(-50%) translateY(-55%) scale(1) ;  
+  transform: translateX(-50%) translateY(-53%);  
   margin: 2rem;
   z-index: 999999;
   cursor: default;
 }
 
+.closed-image:hover{
+  transform: scale(1);
+}
+
+.closed-image{
+  width: calc(100% / 3);
+  transform: scale(.7)
+}
+
 
 .project-images button img{
-  border: 1px solid var(--dark);
-  border-radius: 0.12rem;
-  display: block;
-  max-height: 100%;
-  max-width: 100%;
 
-  object-fit: fill;
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  object-fit: contain;
 }
 
 
@@ -599,6 +612,7 @@ hr {
   text-decoration: underline .1vw solid grey;
   color: var(--dark);
   font-weight: 200;
+  font-size: min(calc(var(--fontSize) * 0.025), 3vw);
 }
 
 
@@ -608,8 +622,9 @@ hr {
     font-size: calc(var(--fontSize) * 0.012);
   }
 
-  .open-image{
-    transform: scale(2) translateX(-40%);  
+  .project-images button:focus{
+    transform: translateX(-65%) translateY(-65%) scale(2);
+
   }
 
   .project-images{

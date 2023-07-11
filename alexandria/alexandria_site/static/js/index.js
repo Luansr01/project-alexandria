@@ -31,7 +31,9 @@ function closeNav() {
     shadeBackToggle()
 }
 
-function openImg(el){
+function openImgToggle(el){
+    shadeBackToggle()
+    el.classList.toggle("closed-image");
     el.classList.toggle("open-image");
 }
 
@@ -43,15 +45,37 @@ function accordionToggleDown(el){
     acc.maxHeight == "" ? acc.maxHeight = maxH + "px" : acc.maxHeight = "";
 }
 
+
+var running = false
 function accordionNavToggle(el){
-    accNav = document.getElementById("accordionWrapper");
-    if(!accNav.classList.contains("nav-active")) accNav.classList.add("nav-active");
+    function changeContent(){
+        accNavContent = document.getElementById(el.id + "-content").innerHTML;
 
-    accNavContent = document.getElementById(el.id + "-content").innerHTML;
+        accNavContentEl = document.getElementById("accordionNavContent")
+        accNavContentEl.innerHTML = accNavContent;
+    }
 
-    accNavContentEl = document.getElementById("accordionNavContent")
-    accNavContentEl.innerHTML = accNavContent;
-
+    if(running == false){
+        if(document.getElementById("accordionNavContent").innerHTML != document.getElementById(el.id + "-content").innerHTML){
+            running = true
+            accNav = document.getElementById("accordionWrapper");
+            transitionDuration = Number(getComputedStyle(accNav).transitionDuration.replace("s", "")) * 1000
+            if(!accNav.classList.contains("nav-active")) {
+                changeContent();
+                accNav.classList.toggle("nav-active");
+                running = false
+            }else{
+                accNav.classList.toggle("nav-active");
+                setTimeout(() => {  
+                    changeContent(); 
+                    accNav.classList.toggle("nav-active"); 
+                    running = false; 
+                }, transitionDuration);
+            }
+            
+        }
+    }
+    
 }
 
 function changeSize(el, sizeW, sizeH){
