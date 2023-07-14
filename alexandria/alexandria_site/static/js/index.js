@@ -73,6 +73,8 @@ function accordionNavToggle(el){
                 }, transitionDuration);
             }
             
+        }else{
+            accNav.classList.toggle("nav-active");
         }
     }
     

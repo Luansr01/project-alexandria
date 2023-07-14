@@ -22,7 +22,7 @@
     <div class="project-images">
         {% for image in images %}
             {% if image %}
-                <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="https://source.unsplash.com/featured/{{value | random}}"></button>
+                <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="{{image.url}}"></button>
             {% endif %}
         {% endfor %}
     </div>

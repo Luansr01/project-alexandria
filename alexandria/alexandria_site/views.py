@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
 from . import models
+from . import forms
 
 
 # Create your views here.
@@ -19,10 +20,28 @@ def about_us(request):
 def projects(request):
     objectives = models.Objective.objects.all()
     projects = models.Project.objects.all()
+    states = [x[1] for x in models.STATE_CHOICES]
+
+    #for _state in states:
+    #    _state = (state, projects(state=)
+    
+
+    if request.method == "POST":
+        form = forms.Filter(request.POST)
+        if form.is_valid():
+                return HttpResponseRedirect("#")
+    else:
+        form = forms.Filter()
+
+
+    form.fields['filter'].initial = request.GET['filter']
     return render(request, 'alexandria_site/projects.html', {
         "objectives": objectives,
         "projects": projects,
         "bgimg": "background-image: url('../static/leaves_tileable.jpg'); background-size: 50%; max-height=100%;",
+        "form":form,
+        "filter":request.GET['filter'],
+        "estados":states
         })   
 
 def news(request):
@@ -47,4 +66,4 @@ def project(request, slug):
     else:
         images = False
 
-    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images, "value":range(5000)})
+    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images})

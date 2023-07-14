@@ -9,7 +9,7 @@
 
     <hr>
 
-    <div class="content-section" style="display: flex;justify-content: center;">
+    <div class="content-section" style="display: flex;justify-content: left; margin: 0 auto; width: 100rem;">
 
         <div class="accordion-wrapper" id="accordionWrapper"> 
 
@@ -20,27 +20,87 @@
             </div>
 
             <div class="menu">
-                {% for objective in objectives %}
-                <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{objective}} | {{objective.project_set.all.count}}</button>
-                <div class="panel down">
-                    {% for project in objective.project_set.all %}
-                    <div>
-                        <div class="projects" >
-                            <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                <!-- <div class="filter-wrapper">
+                    <div class="filter">
+                    <input type="radio" id="ODS" name="filter" value="true" checked>
+                    <label for="ODS">Objetivos de Desenvolvimento Sustentável</label>
+                    </div>
+
+                    <div class="filter">
+                    <input type="radio" id="Cidade" name="filter" value="false" >
+                    <label for="ODS">Cidade</label>
+                    </div>
+
+                    <div class="filter">
+                    <input type="radio" id="Causa" name="filter" value="false" >
+                    <label for="ODS">Causa</label>
+                    </div>
+
+                    <div class="filter">
+                    <input type="radio" id="Público-Alvo" name="filter" value="false" >
+                    <label for="ODS">Público-Alvo</label>
+                    </div>
+                </div> -->
+                <div class="filter-wrapper">
+                    <form action="#" method="GET" onchange="form.submit()">
+                        {% csrf_token %}
+                        {{form}} {{req}}
+                    </form>
+                </div>
+                
+                {% if filter == 'ods'%}
+                    {% for objective in objectives %}
+                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{objective}} | {{objective.project_set.all.count}}</button>
+                    <div class="panel down">
+                        {% for project in objective.project_set.all %}
+                        <div>
+                            <div class="projects" >
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                            </div>
+                            <div class="hidden content-section" id="{{project}}-content">
+                                <p class="title" style="text-align: center;">{{project}}</p>
+                                <hr>
+                                    <div style="font-size: calc(var(--fontSize) * 0.015);">
+                                        {{project.about | linebreaks | truncatewords:120}}
+                                    </div>
+                                <hr>
+                                <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> Leia Mais </button></a>
+                            </div>
                         </div>
-                        <div class="hidden content-section" id="{{project}}-content">
-                            <p class="title" style="text-align: center;">{{project}}</p>
-                            <hr>
-                                <div style="font-size: calc(var(--fontSize) * 0.015);">
-                                    {{project.about | linebreaks | truncatewords:120}}
-                                </div>
-                            <hr>
-                            <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> Leia Mais </button></a>
-                        </div>
+                        {% endfor %}
                     </div>
                     {% endfor %}
-                </div>
-                {% endfor %}
+                
+                {% elif filter == 'estado' %}
+
+                    {% for estado in estados %}
+                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{estado.0}} | {{objective.project_set.all.count}}</button>
+                    <div class="panel down">
+                        {% for project in objective.project_set.all %}
+                        <div>
+                            <div class="projects" >
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                            </div>
+                            <div class="hidden content-section" id="{{project}}-content">
+                                <p class="title" style="text-align: center;">{{project}}</p>
+                                <hr>
+                                    <div style="font-size: calc(var(--fontSize) * 0.015);">
+                                        {{project.about | linebreaks | truncatewords:120}}
+                                    </div>
+                                <hr>
+                                <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 93%; border-radius: 0.5vw;"> Leia Mais </button></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+
+                {% elif filter == 'causa' %}
+                    bbbbbbbbbbbbbb
+
+                {% elif filter == 'cidade' %}
+                    cccccccccccccc
+                {%endif%}
             </div>
 
         </div>
