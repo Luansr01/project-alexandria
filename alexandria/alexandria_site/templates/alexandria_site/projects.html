@@ -21,27 +21,6 @@
             </div>
 
             <div class="menu">
-                <!-- <div class="filter-wrapper">
-                    <div class="filter">
-                    <input type="radio" id="ODS" name="filter" value="true" checked>
-                    <label for="ODS">Objetivos de Desenvolvimento Sustentável</label>
-                    </div>
-
-                    <div class="filter">
-                    <input type="radio" id="Cidade" name="filter" value="false" >
-                    <label for="ODS">Cidade</label>
-                    </div>
-
-                    <div class="filter">
-                    <input type="radio" id="Causa" name="filter" value="false" >
-                    <label for="ODS">Causa</label>
-                    </div>
-
-                    <div class="filter">
-                    <input type="radio" id="Público-Alvo" name="filter" value="false" >
-                    <label for="ODS">Público-Alvo</label>
-                    </div>
-                </div> -->
                 <div class="filter-wrapper">
                     <form action="#" method="GET" onchange="form.submit()">
                         {% csrf_token %}
@@ -75,9 +54,9 @@
                 {% elif filter == 'estado' %}
 
                     {% for estado in estados %}
-                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{estado.0}} | {{estado.1.count}}</button>
+                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{estado.0}} | {{estado.1|length}}</button>
                     <div class="panel down">
-                        {% for project in objective.project_set.all %}
+                        {% for project in estado.1 %}
                         <div>
                             <div class="projects" >
                                 <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
@@ -97,10 +76,53 @@
                     {% endfor %}
 
                 {% elif filter == 'causa' %}
-                    bbbbbbbbbbbbbb
+
+                    {% for causa in causas %}
+                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{causa.0}} | {{causa.1|length}}</button>
+                    <div class="panel down">
+                        {% for project in causa.1 %}
+                        <div>
+                            <div class="projects" >
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                            </div>
+                            <div class="hidden content-section" id="{{project}}-content">
+                                <p class="title" style="text-align: center;">{{project}}</p>
+                                <hr>
+                                    <div style="font-size: calc(var(--fontSize) * 0.015);">
+                                        {{project.about | linebreaks | truncatewords:120}}
+                                    </div>
+                                <hr>
+                                <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 90%; border-radius: 0.5vw;"> Leia Mais </button></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
 
                 {% elif filter == 'cidade' %}
-                    cccccccccccccc
+                    
+                    {% for cidade in cidades %}
+                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{cidade.0}} | {{cidade.1|length}}</button>
+                    <div class="panel down">
+                        {% for project in cidade.1 %}
+                        <div>
+                            <div class="projects" >
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}}</small></button>
+                            </div>
+                            <div class="hidden content-section" id="{{project}}-content">
+                                <p class="title" style="text-align: center;">{{project}}</p>
+                                <hr>
+                                    <div style="font-size: calc(var(--fontSize) * 0.015);">
+                                        {{project.about | linebreaks | truncatewords:120}}
+                                    </div>
+                                <hr>
+                                <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 90%; border-radius: 0.5vw;"> Leia Mais </button></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+
                 {%endif%}
             </div>
 

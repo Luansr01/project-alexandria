@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 STATE_CHOICES = ( 
 	('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), 
@@ -51,11 +52,7 @@ class Objective(models.Model):
         return self.name
 
 class Project(models.Model):
-    def folder_name(self, name):
-        return f'{self.name}_project_images/{name}'
 
-    def gen_slug(self, name):
-        return self.name.lower().replace(" ", "-")
 
     name = models.CharField("Nome do Projeto", max_length=50)
     state = models.CharField("Estado", max_length=2, choices=STATE_CHOICES)
@@ -67,14 +64,23 @@ class Project(models.Model):
     cause = models.CharField("Causa", max_length=30, blank=True)
     partners = models.ManyToManyField(Partner, verbose_name="Parceiros")
 
+    slug = models.SlugField(unique=True, blank=True, editable=False)
+
     def __str__(self):
         return self.name
+
+    def folder_name(self, name):
+        return f'{self.name}_project_images/{name}'
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Project, self).save(*args, **kwargs)
     
 
 for i in range(3):
     Project.add_to_class(f'image_{i+1}', models.ImageField("Imagem", upload_to=Project.folder_name, blank=True))
 
-Project.add_to_class('slug', models.SlugField("Slug", editable=False, blank=False, default=Project.gen_slug))
+
 
 
 class Page(models.Model):

@@ -18,14 +18,15 @@ def about_us(request):
     return render(request, 'alexandria_site/about_us.html')   
 
 def projects(request):
+    def most_common(lst):
+        return max(set(lst), key=lst.count)
+
     objectives = models.Objective.objects.all()
-    projects = models.Project.objects.all()
+    projects = models.Project.objects
 
-    states = [x[0] for x in models.STATE_CHOICES]
-
-    for i, s in enumerate(states):
-        states[i] = (models.STATE_CHOICES[i][1], models.Project.objects.filter(state=s))
-    
+    states = [(x[1], list(projects.filter(state=x[0]))) for x in models.STATE_CHOICES]
+    cities = [(f'{most_common(list(projects.filter(city=x["city"]).values_list("state", flat=True)))} - {x["city"]}', list(projects.filter(city=x['city']))) for x in projects.exclude(city=None).values('city').distinct()]
+    causes = [(x['cause'], list(projects.filter(cause=x['cause']))) for x in projects.exclude(cause=None).values('cause').distinct()]
 
     if request.method == "POST":
         form = forms.Filter(request.POST)
@@ -38,11 +39,13 @@ def projects(request):
     form.fields['filter'].initial = request.GET.get('filter', 'ods')
     return render(request, 'alexandria_site/projects.html', {
         "objectives": objectives,
-        "projects": projects,
+        "projects": projects.all(),
         "bgimg": "background-image: url('../static/leaves_tileable.jpg'); background-size: 50%; max-height=100%;",
         "form":form,
         "filter":request.GET.get('filter', 'ods'),
-        "estados":states
+        "estados":states,
+        "causas":causes,
+        "cidades":cities
         })   
 
 def news(request):

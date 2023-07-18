@@ -442,9 +442,9 @@ hr {
 
 .menu {
   position: relative;
-  background-color: var(--lighter);
+  background-color: var(--accordion);
   max-width: var(--accordion-width);
-  min-height: 4.5rem;
+  min-height: 76.5rem;
   z-index: 300;
 }
 
@@ -508,7 +508,7 @@ hr {
 
 .accordion-nav{
   max-height: 100%;
-  max-width: calc(98% - var(--accordion-width));
+  width: calc(98% - var(--accordion-width));
   position: absolute;
   right: 1%;
   overflow: hidden;
