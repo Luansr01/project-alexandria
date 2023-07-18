@@ -20,10 +20,11 @@ def about_us(request):
 def projects(request):
     objectives = models.Objective.objects.all()
     projects = models.Project.objects.all()
-    states = [x[1] for x in models.STATE_CHOICES]
 
-    #for _state in states:
-    #    _state = (state, projects(state=)
+    states = [x[0] for x in models.STATE_CHOICES]
+
+    for i, s in enumerate(states):
+        states[i] = (models.STATE_CHOICES[i][1], models.Project.objects.filter(state=s))
     
 
     if request.method == "POST":
@@ -34,13 +35,13 @@ def projects(request):
         form = forms.Filter()
 
 
-    form.fields['filter'].initial = request.GET['filter']
+    form.fields['filter'].initial = request.GET.get('filter', 'ods')
     return render(request, 'alexandria_site/projects.html', {
         "objectives": objectives,
         "projects": projects,
         "bgimg": "background-image: url('../static/leaves_tileable.jpg'); background-size: 50%; max-height=100%;",
         "form":form,
-        "filter":request.GET['filter'],
+        "filter":request.GET.get('filter', 'ods'),
         "estados":states
         })   
 
