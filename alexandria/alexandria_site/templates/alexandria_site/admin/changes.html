@@ -1,0 +1,42 @@
+{% extends 'admin/index.html' %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+
+.colMS{
+    width: 80rem !important;
+    margin-right: 0;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+.colMS h1{
+    padding: 1rem;
+    color: white;
+    border-radius: .2rem;
+    background-color: #79aec8;
+    text-align: left;
+    width: 50vw;
+    height: fit-content;
+    margin: 0;
+}
+
+#content-main{
+    width: 50vw;
+    margin: 0;
+}
+
+#content-related{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    float: none;
+}
+
+</style>
+{% endblock %}

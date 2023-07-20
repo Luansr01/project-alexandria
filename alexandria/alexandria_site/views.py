@@ -12,10 +12,7 @@ def home(request):
     return render(request, 'alexandria_site/home.html', {"title": "Página Inicial"})
 
 def about(request):
-    return render(request, 'alexandria_site/about.html')
-
-def about_us(request):
-    return render(request, 'alexandria_site/about_us.html')   
+    return render(request, 'alexandria_site/about.html', {"title": "Sobre"})
 
 def projects(request):
     def most_common(lst):
@@ -45,7 +42,8 @@ def projects(request):
         "filter":request.GET.get('filter', 'ods'),
         "estados":states,
         "causas":causes,
-        "cidades":cities
+        "cidades":cities,
+        "title": "Projetos"
         })   
 
 def news(request):
@@ -57,7 +55,7 @@ def news(request):
     })
 
 def contact(request):
-    return render(request, 'alexandria_site/contact.html')   
+    return render(request, 'alexandria_site/contact.html', {"title": "Contato"})   
 
 def project(request, slug):
     
@@ -76,4 +74,4 @@ def project(request, slug):
         video = False
 
 
-    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images, "video":video})
+    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images, "video":video, "title": sl.name})

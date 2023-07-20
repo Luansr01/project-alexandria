@@ -1,58 +1,76 @@
 {% extends 'alexandria_site/layout.html' %}
 
 {% block content %}
-<div style="font-family:roboto; font-size: calc(var(--fontSize) * 0.02);">
-    <p class="title" style="text-align: center; margin-top: 8vh;">{{project}}</p>
-    <hr>
-    <div class="project-info">
-        <p class="project-ods">
-            <abbr title="Objetivo de Desenvolvimento Sustentável">ODS</abbr> | {{ods}}
-        </p>
-        <div style="display: flex; justify-content: space-evenly; gap:5vw;">
-        <p class="project-city">Local | {{project.city}} - {{project.state}} </p>
-        <p class="project-cause">Causa | {{project.cause}}</p>
-        </div>
+<div class="content">
+    <div style="font-family:roboto; font-size: calc(var(--fontSize) * 0.02);">
+        <p class="title" style="text-align: center; margin-top: 8vh; font-size: 5rem;">{{project}}</p>
+        <hr>
 
-    </div>
-    <div class="content-section" style="background-color: #3181c60b;margin: 0 auto; margin-top: 5vh; margin-bottom: 10vh; max-width: 80vw; font-size: calc(var(--fontSize) * 0.015);">
-            {{project.about|linebreaks}} 
-    </div>
-    <hr>
-    {% if images %}
-    <div class="project-images">
-        {% for image in images %}
-            {% if image %}
-                <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="{{image}}"></button>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <hr>
-    {%endif%}
-
-    {% if video %}
-        <div class="video-wrapper">
-            <video width="640" height="480" controls class="video">
-                <source src="{{video}}" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-        </div>
-    <hr>
-    {% endif %}
-
-    <p style="text-align: center; font-weight: 500;">Parceiros:</p><br><br>
-    <div class="project-info">
         
-        <div class="project-partners">
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2vw;">
-                    {% for partner in partners %}
-                        <div style="text-align: center">
-                            <img src="{{partner.logo.url}}" width="100vw;" style="outline: .1rem solid black; outline-offset: .5rem;"><br>
-                            <sub style="font-size: 2rem; font-weight: 500;">
-                                {{partner.name}}
-                            </sub>
-                        </div>
-                    {% endfor %}
-                </div>
+        <div class="project-info">
+            <p class="project-ods">
+                <abbr title="Objetivo de Desenvolvimento Sustentável">ODS</abbr> | {{ods}}
+            </p>
+            <div style="display: flex; justify-content: space-evenly; gap:5vw;">
+            <p class="project-city">Local | {{project.city}} - {{project.state}} </p>
+            <p class="project-cause">Causa | {{project.cause}}</p>
+            </div>
+
+        </div>
+
+        {% if video %}
+        <hr>
+            <div class="video-wrapper">
+                <video width="640" height="480" controls class="video">
+                    <source src="{{video}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        <hr>
+        {% endif %}
+
+        
+        <div class="content-section" style="background-color: #3181c60b;margin: 0 auto; margin-top: 5vh; margin-bottom: 10vh; max-width: 80vw; font-size: calc(var(--fontSize) * 0.015);">
+            <p class="title" style="text-align: center; font-size: 3.5rem;">Sobre</p>
+                {{project.about|linebreaks}} 
+        </div>
+        <hr>
+        {% if images %}
+        <div class="project-images">
+            {% for image in images %}
+                {% if image %}
+                    <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="{{image}}"></button>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <hr>
+        {%endif%}
+
+
+
+        
+        <div class="project-info">
+            
+            {%if partners%}
+            <div class="project-partners">
+                <p style="text-align: center; font-weight: 500; margin: 2rem;">Parceiros:</p>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2vw;">
+                        {% for partner in partners %}
+                            <div style="text-align: center">
+                                {%if partner.logo%}
+                                <div style="background-color: var(--shadow);width: 8rem; height: 8rem; border-radius: 1rem; display: flex; justify-content: center; padding-inline: 1rem;">
+                                    <img src="{{partner.logo.url}}" style=" display: block; width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                {%else%}
+                                <h1 style="font-size: 2rem; font-weight: 500;">
+                                    {{partner.name}}
+                                </h1>
+                                {%endif%}
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            {%endif%}
         </div>
     </div>
 </div>
