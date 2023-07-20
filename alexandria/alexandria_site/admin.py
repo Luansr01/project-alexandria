@@ -15,6 +15,7 @@ class PartnerAdmin(admin.ModelAdmin):
 @admin.register(models.Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ("name", "ods")
+
 # admin.site.register(models.Post) TODO
 
 # Unregister your models here.

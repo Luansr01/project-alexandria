@@ -82,7 +82,7 @@ class Project(models.Model):
     about = models.TextField("Sobre o Projeto")
 
     ODS = models.ManyToManyField(Objective)
-    cause = models.CharField("Causa", max_length=30, blank=True)
+    cause = models.CharField("Causa", max_length=60, blank=True)
     partners = models.ManyToManyField(Partner, verbose_name="Parceiros")
 
     slug = models.SlugField(unique=True, blank=True, editable=False)
@@ -100,7 +100,7 @@ class Project(models.Model):
         return odss
 
     def folder_name(self, name):
-        return f'{self.name}_project_images/{name}'
+        return f'{self.name}_project_media/{name}'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

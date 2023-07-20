@@ -11,12 +11,10 @@
             <p class="project-ods">
                 <abbr title="Objetivo de Desenvolvimento Sustentável">ODS</abbr> | {{ods}}
             </p>
-            <div style="display: flex; justify-content: space-evenly; gap:5vw;">
             <p class="project-city">Local | {{project.city}} - {{project.state}} </p>
             {%if project.cause%}
             <p class="project-cause">Causa | {{project.cause}}</p>
             {%endif%}
-            </div>
 
         </div>
 
@@ -61,7 +59,7 @@
                             <div style="text-align: center">
                                 {%if partner.logo%}
                                 <div style="background-color: var(--shadow);width: 8rem; height: 8rem; border-radius: 1rem; display: flex; justify-content: center; padding-inline: 1rem;">
-                                    <img src="{{partner.logo.url}}" style=" display: block; width: 100%; height: 100%; object-fit: contain;">
+                                    <img src="{{partner.logo.url}}" style=" display: block; width: 100%; height: 100%; object-fit: contain;" title="{{partner.name}}">
                                 </div>
                                 {%else%}
                                 <h1 style="font-size: 2rem; font-weight: 500;">
