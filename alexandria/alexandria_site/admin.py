@@ -3,9 +3,18 @@ from  django.contrib.auth.models  import  Group
 from . import models
 
 # Register your models here.
-admin.site.register(models.Objective)
-admin.site.register(models.Partner)
-admin.site.register(models.Project)
+
+@admin.register(models.Objective)
+class ObjectiveAdmin(admin.ModelAdmin):
+    list_display = ("name", "projects")
+
+@admin.register(models.Partner)
+class PartnerAdmin(admin.ModelAdmin):
+    list_display = ("name", "projects")
+
+@admin.register(models.Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ("name", "ods")
 # admin.site.register(models.Post) TODO
 
 # Unregister your models here.

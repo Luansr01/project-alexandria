@@ -36,6 +36,8 @@ class Post(models.Model):
         return self.title
 
 class Partner(models.Model):
+    def projects(self):
+        return self.project_set.all().count()
 
     class Meta:
         verbose_name = 'Parceiro'
@@ -50,6 +52,8 @@ class Partner(models.Model):
         return self.name
 
 class Objective(models.Model):
+    def projects(self):
+        return self.project_set.all().count()
 
     class Meta:
         verbose_name = 'ODS'
@@ -86,6 +90,15 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    def ods(self):
+        odss = self.ODS.all()
+        if odss.count() > 1:
+            odss = ", ".join(list([x.name for x in self.ODS.all()]))
+        else:
+            odss = self.ODS.all()[0]
+    
+        return odss
+
     def folder_name(self, name):
         return f'{self.name}_project_images/{name}'
 
@@ -94,7 +107,7 @@ class Project(models.Model):
         super(Project, self).save(*args, **kwargs)
     
 
-for i in range(3):
+for i in range(6):
     Project.add_to_class(f'image_{i+1}', models.ImageField("Imagem", upload_to=Project.folder_name, blank=True))
 
 Project.add_to_class('video', models.FileField("Video", upload_to=Project.folder_name, blank=True, validators=[FileExtensionValidator(allowed_extensions=['mp4'])]))

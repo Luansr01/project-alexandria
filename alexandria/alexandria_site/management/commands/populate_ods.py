@@ -26,5 +26,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for objective in ODS:
-            Objective.objects.create(name=objective)
-            self.stdout.write(self.style.SUCCESS(objective + "Added successfully!"))
+            if(not (objective in [x.name for x in Objective.objects.all()])):
+                Objective.objects.create(name=objective)
+                self.stdout.write(self.style.SUCCESS(objective + " Added successfully!"))
+            else:
+                self.stdout.write("Objective already exists.")

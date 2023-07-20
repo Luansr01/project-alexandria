@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
+from random import randint
+
 from . import models
 from . import forms
 
@@ -63,8 +65,8 @@ def project(request, slug):
     ods = ", ".join(list(map(lambda n : n.name, list(sl.ODS.all())))) #Gets all of the names of the ODSs associated with the project and concatenates them into a string separated by a comma.
     partners = list(sl.partners.all())
 
-    if (sl.image_1 or sl.image_2 or sl.image_3):
-        images = [sl.image_1.url, sl.image_2.url, sl.image_3.url]
+    if (sl.image_1 or sl.image_2 or sl.image_3 or sl.image_4 or sl.image_5 or sl.image_6):
+        images = [sl.image_1, sl.image_2, sl.image_3, sl.image_4, sl.image_5, sl.image_6]
     else:
         images = False
 

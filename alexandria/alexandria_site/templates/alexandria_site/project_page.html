@@ -13,7 +13,9 @@
             </p>
             <div style="display: flex; justify-content: space-evenly; gap:5vw;">
             <p class="project-city">Local | {{project.city}} - {{project.state}} </p>
+            {%if project.cause%}
             <p class="project-cause">Causa | {{project.cause}}</p>
+            {%endif%}
             </div>
 
         </div>
@@ -39,7 +41,7 @@
         <div class="project-images">
             {% for image in images %}
                 {% if image %}
-                    <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="{{image}}"></button>
+                    <button class="project-image closed-image" onload="makeFocusable(this)" onfocus=" openImgToggle(this)" onfocusout="openImgToggle(this)"><img src="{{image.url}}"></button>
                 {% endif %}
             {% endfor %}
         </div>
