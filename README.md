@@ -108,14 +108,6 @@ A senha e usuário de acesso são:
     </td>
         <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/128161346?v=4" width="100px;" alt="Foto da Mayra"/><br>
-        <sub>
-          <b>Mayra Oliveira Torres</b>
-        </sub>
-      </a>
-    </td>
-        <td align="center">
-      <a href="#">
         <img src="https://avatars.githubusercontent.com/u/36458464?v=4" width="100px;" alt="Foto do Erick"/><br>
         <sub>
           <b>Erick Afonso da Costa Chagas</b>
