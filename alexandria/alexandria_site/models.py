@@ -36,6 +36,11 @@ class Post(models.Model):
         return self.title
 
 class Partner(models.Model):
+
+    class Meta:
+        verbose_name = 'Parceiro'
+        verbose_name_plural = 'Parceiros'
+
     name = models.CharField("Nome", max_length=50)
     about = models.TextField("Sobre", max_length=500, blank=True)
     logo = models.ImageField("Logo", blank=True)
@@ -45,6 +50,11 @@ class Partner(models.Model):
         return self.name
 
 class Objective(models.Model):
+
+    class Meta:
+        verbose_name = 'ODS'
+        verbose_name_plural = 'Objetivos'
+
     name = models.CharField(max_length=60) 
 
     icon = models.ImageField("Icone", upload_to="icons", blank=True)
@@ -55,6 +65,10 @@ class Objective(models.Model):
 
 
 class Project(models.Model):
+
+    class Meta:
+        verbose_name = 'Projeto'
+        verbose_name_plural = 'Projetos'
 
 
     name = models.CharField("Nome do Projeto", max_length=50)
@@ -83,16 +97,6 @@ class Project(models.Model):
 for i in range(3):
     Project.add_to_class(f'image_{i+1}', models.ImageField("Imagem", upload_to=Project.folder_name, blank=True))
 
-Project.add_to_class('video', models.FileField("Video", upload_to=Project.folder_name, blank=True, validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])]))
-
-
-
-class Page(models.Model):
-    title = models.CharField("Titulo da Página", max_length=50)
-    content = models.TextField("Conteúdo")
-    
-    def __str__(self):
-        return self.title
-    
+Project.add_to_class('video', models.FileField("Video", upload_to=Project.folder_name, blank=True, validators=[FileExtensionValidator(allowed_extensions=['mp4'])]))
 
     

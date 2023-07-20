@@ -264,22 +264,12 @@ hr {
 
 /* <- About Page -> */
 
-
-.content-section .image{
-  width: min(50%, 50rem);
-}
-
-.image img{
-  display: block;
-  box-shadow:5px 10px 20px #7a7a7a;
-  max-width: 100%;
-  max-height: 100%;
-}
-
  .text{
   width: 50rem;
-  font-size: calc(var(--fontSize) * 0.012);
+  font-size: calc(var(--fontSize) * 0.015);
   padding: 1rem;
+  padding-top: 0;
+  font-family: Roboto;
 }
 
 #shade{
@@ -315,7 +305,6 @@ hr {
   color: var(--medium);
 
 
-  text-decoration: underline solid 0.02vw;
 }
 
 .content-section .post{
@@ -623,6 +612,18 @@ hr {
   width: 100%;
 
   object-fit: contain;
+}
+
+.video-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-block: 1rem;
+}
+
+.video{
+  width: 40vw;
+  height: 22.5vw;
 }
 
 

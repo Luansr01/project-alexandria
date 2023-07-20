@@ -66,8 +66,14 @@ def project(request, slug):
     partners = list(sl.partners.all())
 
     if (sl.image_1 or sl.image_2 or sl.image_3):
-        images = [sl.image_1, sl.image_2, sl.image_3]
+        images = [sl.image_1.url, sl.image_2.url, sl.image_3.url]
     else:
         images = False
 
-    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images})
+    if (sl.video):
+        video = sl.video.url
+    else:
+        video = False
+
+
+    return render(request, 'alexandria_site/project_page.html', {"project":sl, "ods":ods, "partners":partners, "images":images, "video":video})
