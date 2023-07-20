@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.validators import FileExtensionValidator
+
 
 STATE_CHOICES = ( 
 	('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'), 
@@ -26,7 +28,6 @@ class Post(models.Model):
 
     content = models.TextField("Conteúdo do Post")
 
-    image = models.ImageField("Imagem", upload_to=folder_name, blank=True)
 
     date_posted = models.DateField("Data de Criação", auto_now_add=True)
     date_edited = models.DateField("Data da Ultima Edição", auto_now=True)
@@ -50,6 +51,8 @@ class Objective(models.Model):
 
     def __str__(self):
         return self.name
+
+
 
 class Project(models.Model):
 
@@ -80,6 +83,7 @@ class Project(models.Model):
 for i in range(3):
     Project.add_to_class(f'image_{i+1}', models.ImageField("Imagem", upload_to=Project.folder_name, blank=True))
 
+Project.add_to_class('video', models.FileField("Video", upload_to=Project.folder_name, blank=True, validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])]))
 
 
 

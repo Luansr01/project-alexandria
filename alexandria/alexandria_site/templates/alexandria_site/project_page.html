@@ -36,8 +36,8 @@
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2vw;">
                     {% for partner in partners %}
                         <div style="text-align: center">
-                            <img src="a" width="100vw;"/><br>
-                            <sub style="font-size: 2rem;">
+                            <img src="{{partner.logo.url}}" width="100vw;" style="outline: .1rem solid black; outline-offset: .5rem;"><br>
+                            <sub style="font-size: 2rem; font-weight: 500;">
                                 {{partner.name}}
                             </sub>
                         </div>
