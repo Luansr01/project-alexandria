@@ -26,11 +26,10 @@ O projeto é construido em Python e usa como framework o Django.
 * Os browsers utilizados na fase de teste foram: Chrome 111.0 e Firefox 111.0.
 * As IDE's utilizadas no desenvolvimento são: Visual Studio Code, Notepad++ e Vim.
 * Os OS's utilizados foram: Windows e Arch Linux.
-* O Banco de Dados usado é o SQLite
+* O Banco de Dados usado é o SQLite.
 
 ### Bibliotecas Utilizadas:
 
-* Django Extensions
 * Pillow
 
 ## Requisitos para a execução do projeto
