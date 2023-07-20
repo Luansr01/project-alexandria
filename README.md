@@ -22,7 +22,7 @@ O projeto é construido em Python e usa como framework o Django.
 
 * A implementação é feita em Python 3.
 * Uso do framework Django.
-* Os Templates são construidos com: HTML, CSS e JavaScript.
+* Os Templates são construidos com: HTML, CSS e JavaScript, com a Template Engine do Django baseada em Jinja2.
 * Os browsers utilizados na fase de teste foram: Chrome 111.0 e Firefox 111.0.
 * As IDE's utilizadas no desenvolvimento são: Visual Studio Code, Notepad++ e Vim.
 * Os OS's utilizados foram: Windows e Arch Linux.
