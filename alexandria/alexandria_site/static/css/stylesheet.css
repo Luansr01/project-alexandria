@@ -16,8 +16,10 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
 }
+
+
 
 @font-face {
   font-family: 'roboto';
@@ -31,7 +33,7 @@ time, mark, audio, video {
   font-weight: 200;
 }
 @font-face {
-  font-family: 'roboto';
+  font-family: 'roboto-thin';
   src: local('Roboto-Thin'), 
         url('../fonts/Roboto-Thin.ttf') format("truetype");
   font-weight: lighter;
@@ -304,8 +306,8 @@ hr {
 .title{
   margin: 3vh;
   font-size: calc(var(--fontSize) * 0.0336);
-  font-family: roboto;
-  font-weight: 500;
+  font-family: 'roboto';
+  font-weight: 200;
 
   color: var(--medium);
 
@@ -395,10 +397,10 @@ hr {
 .link-button{
   background-color: var(--button);
   width: 35%; height: 7rem; 
-  font-size: calc(var(--fontSize) * 0.02); 
+  font-size: calc(var(--fontSize) * 0.04); 
   margin: 2rem;
-  font-family: roboto;
-  font-weight: 200;
+  font-family: 'roboto-thin';
+  font-weight: lighter;
   color: white;
   border: 3px groove var(--shadow);
   border-radius: 10px;
@@ -552,6 +554,8 @@ hr {
   align-items: center;
   gap: 1vw;
 
+  
+
   min-width: 100%;
   width: 100%;
   margin: 0 auto;
@@ -574,6 +578,8 @@ hr {
   height: fit-content;
   max-width: 100vw;
 
+  
+
 }
 
 .project-images button{
@@ -588,6 +594,10 @@ hr {
   cursor: pointer;
 
   transition: 200ms;
+
+  overflow: hidden;
+  border-radius: 1rem;
+  
 
 }
 
@@ -607,7 +617,9 @@ hr {
 
 .closed-image{
   width: calc(100% / 3);
-  transform: scale(.7)
+  transform: scale(.7);
+  
+  
 }
 
 
@@ -635,7 +647,7 @@ hr {
 
 .project-ods, .project-city, .project-cause{
   /* font-style: italic; */
-  text-decoration: underline .1vw solid grey;
+  text-decoration: underline .01vw solid grey;
   color: var(--dark);
   font-weight: 200;
   font-size: min(calc(var(--fontSize) * 0.025), 3vw);
