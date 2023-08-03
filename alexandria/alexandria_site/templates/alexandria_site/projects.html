@@ -30,12 +30,12 @@
                 
                 {% if filter == 'ods'%}
                     {% for objective in objectives %}
-                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{objective}} | {{objective.project_set.all.count}}</button>
+                    <button  class="accordion" style="font-weight: 200; background-color: color-mix(in srgb, {{objective.color}} var(--amm), #225c90);" onclick="accordionToggleDown(this)"> <div style="display: flex; justify-content:space-between; align-items: center; gap: 2rem; padding-inline: 2rem;">{{objective}} | {{objective.project_set.all.count}}{%if objective.icon %}<img src="{{objective.icon.url}}" style="max-width: 5rem; mix-blend-mode: color-dodge;">{% endif %}</div></button>
                     <div class="panel down">
                         {% for project in objective.project_set.all %}
                         <div>
                             <div class="projects" >
-                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | {{project.city.lower|title}}</button>
                             </div>
                             <div class="hidden content-section" id="{{project}}-content">
                                 <p class="title" style="text-align: center;">{{project}}</p>
@@ -52,30 +52,6 @@
                         {% endfor %}
                     </div>
                     {% endfor %}
-                
-                {% elif filter == 'estado' %}
-
-                    {% for estado in estados %}
-                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{estado.0}} | {{estado.1|length}}</button>
-                    <div class="panel down">
-                        {% for project in estado.1 %}
-                        <div>
-                            <div class="projects" >
-                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
-                            </div>
-                            <div class="hidden content-section" id="{{project}}-content">
-                                <p class="title" style="text-align: center;">{{project}}</p>
-                                <hr>
-                                    <div style="font-size: calc(var(--fontSize) * 0.015);">
-                                        {{project.about | linebreaks | truncatewords:120}}
-                                    </div>
-                                <hr>
-                                <a href="{%url 'project' project.slug%}"> <button class="link-button" style="width: 60%; border-radius: 0.5vw;"> Leia Mais </button></a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    {% endfor %}
 
                 {% elif filter == 'causa' %}
 
@@ -85,7 +61,7 @@
                         {% for project in causa.1 %}
                         <div>
                             <div class="projects" >
-                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | <small>{{project.state}} - {{project.city}}</small></button>
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}} | {{project.city.lower|title}}</button>
                             </div>
                             <div class="hidden content-section" id="{{project}}-content">
                                 <p class="title" style="text-align: center;">{{project}}</p>
@@ -109,7 +85,7 @@
                         {% for project in cidade.1 %}
                         <div>
                             <div class="projects" >
-                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}}</small></button>
+                                <button style="font-weight: 200;" class="sub accordion" id="{{project}}" onclick="accordionNavToggle(this)">{{project}}</button>
                             </div>
                             <div class="hidden content-section" id="{{project}}-content">
                                 <p class="title" style="text-align: center;">{{project}}</p>

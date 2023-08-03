@@ -446,6 +446,8 @@ hr {
 
 
 .accordion{
+  --amm: 70%;
+
   position: relative;
   width: 100%;
   height: 4.5rem;
@@ -476,6 +478,7 @@ hr {
 }
 
 .accordion:hover{
+  --amm: 100%;
   cursor: pointer;
   background-color: var(--accordion-hover);
 }
