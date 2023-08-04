@@ -653,7 +653,7 @@ hr {
   text-decoration: underline .01vw solid grey;
   color: var(--dark);
   font-weight: 200;
-  font-size: min(calc(var(--fontSize) * 0.025), 3vw);
+  font-size: min(calc(var(--fontSize) * 0.02), 3vw);
 }
 
 
