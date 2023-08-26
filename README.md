@@ -30,7 +30,9 @@ O projeto é construido em Python e usa como framework o Django.
 
 ### Bibliotecas Utilizadas:
 
-* Pillow
+* pillow
+* django
+* django-colorfield
 
 ## Requisitos para a execução do projeto
 
