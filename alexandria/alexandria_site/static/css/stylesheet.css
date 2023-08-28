@@ -164,6 +164,33 @@ hr {
   
 }
 
+.socials{
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 0 auto;
+  height: 100%; width: 15rem;
+}
+
+.social{
+  height: 3rem; width: 3rem;
+  opacity: 50%;
+  mix-blend-mode: multiply;
+  transition: .5ms;
+}
+
+.social:hover{
+  opacity: 70%;
+}
+
+.social img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .home-banner{
   width: 100%;  
 }
@@ -446,7 +473,7 @@ hr {
 
 
 .accordion{
-  --amm: 70%;
+  --amm: 65%;
 
   position: relative;
   width: 100%;
@@ -461,6 +488,8 @@ hr {
   font-family: roboto;
   font-size: calc(var(--fontSize) * 0.016);
   color: white;
+
+  transition: 150ms;
 }
 
 .sub.accordion{
@@ -478,7 +507,7 @@ hr {
 }
 
 .accordion:hover{
-  --amm: 100%;
+  --amm: 90%;
   cursor: pointer;
   background-color: var(--accordion-hover);
 }

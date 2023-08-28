@@ -30,7 +30,7 @@
                 
                 {% if filter == 'ods'%}
                     {% for objective in objectives %}
-                    <button  class="accordion" style="font-weight: 200; background-color: color-mix(in srgb, {{objective.color}} var(--amm), #225c90);" onclick="accordionToggleDown(this)"> <div style="display: flex; justify-content:space-between; align-items: center; gap: 2rem; padding-inline: 2rem;">{{objective}} | {{objective.project_set.all.count}}{%if objective.icon %}<img src="{{objective.icon.url}}" style="max-width: 5rem; mix-blend-mode: color-dodge;">{% endif %}</div></button>
+                    <button  class="accordion" style="font-weight: 200; background-color: color-mix(in srgb, {{objective.color}} var(--amm), #225c90);" onclick="accordionToggleDown(this)"> <div style="display: flex; justify-content:space-between; align-items: center; gap: 2rem; padding-inline: 2rem;">{{objective}} | {{objective.project_set.all.count}}{%if objective.icon %}<img src="{{objective.icon.url}}" style="max-width: 5rem; mix-blend-mode: screen;">{% endif %}</div></button>
                     <div class="panel down">
                         {% for project in objective.project_set.all %}
                         <div>
@@ -80,7 +80,9 @@
                 {% elif filter == 'cidade' %}
                     
                     {% for cidade in cidades %}
-                    <button style="font-weight: 200;" class="accordion" onclick="accordionToggleDown(this)">{{cidade.0}} | {{cidade.1|length}}</button>
+
+                    {%if cidade.1%}
+                    <button style="font-weight: 200; height: 2.5rem;" class="accordion" onclick="accordionToggleDown(this)">{{cidade.0}} | {{cidade.1|length}}</button>
                     <div class="panel down">
                         {% for project in cidade.1 %}
                         <div>
@@ -99,6 +101,7 @@
                         </div>
                         {% endfor %}
                     </div>
+                    {%endif%}
                     {% endfor %}
 
                 {%endif%}
