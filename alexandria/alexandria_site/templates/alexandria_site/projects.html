@@ -22,7 +22,7 @@
 
             <div class="menu">
                 <div class="filter-wrapper">
-                    <form action="#" method="GET" onchange="form.submit()">
+                    <form class="filter" action="#" method="GET" onchange="form.submit()">
                         {% csrf_token %}
                         {{form}} {{req}}
                     </form>
@@ -30,7 +30,7 @@
                 
                 {% if filter == 'ods'%}
                     {% for objective in objectives %}
-                    <button  class="accordion" style="font-weight: 200; background-color: color-mix(in srgb, {{objective.color}} var(--amm), #225c90);" onclick="accordionToggleDown(this)"> <div style="display: flex; justify-content:space-between; align-items: center; gap: 2rem; padding-inline: 2rem;">{{objective}} | {{objective.project_set.all.count}}{%if objective.icon %}<img src="{{objective.icon.url}}" style="max-width: 5rem; mix-blend-mode: screen;">{% endif %}</div></button>
+                    <button  class="accordion" style="font-weight: 200; background-color: color-mix(in srgb, {{objective.color}} var(--amm), #225c90); text-align: left;" onclick="accordionToggleDown(this)"> <div style="display: flex; justify-content:space-between; align-items: center; gap: 2rem; padding-inline: 2rem;">{{objective}} | {{objective.project_set.all.count}}{%if objective.icon %}<img src="{{objective.icon.url}}" style="max-width: 5rem; mix-blend-mode: screen;">{% endif %}</div></button>
                     <div class="panel down">
                         {% for project in objective.project_set.all %}
                         <div>
